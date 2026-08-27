@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A practical, project-first roadmap for learning software development from computer science fundamentals to Java backend engineering." />
+  <meta name="theme-color" content="#0a0b0f" />
+  <title>DevPath — Learn Programming in the Right Order</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-glow glow-one"></div>
+  <div class="page-glow glow-two"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="DevPath home">
+      <span class="brand-mark">&lt;/&gt;</span>
+      <span>DevPath</span>
+    </a>
+
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#roadmap">Roadmap</a>
+      <a href="#resources">Resources</a>
+      <a href="#projects">Projects</a>
+      <a href="#rules">Study rules</a>
+    </nav>
+
+    <div class="top-actions">
+      <button class="icon-btn" id="themeToggle" aria-label="Toggle color theme" title="Toggle theme">☼</button>
+      <a class="github-btn" href="https://github.com/" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero container">
+      <div class="hero-copy">
+        <div class="pill"><span class="pulse"></span> SELF-TAUGHT DEVELOPER ROADMAP</div>
+        <h1>Stop collecting courses.<br><span>Start building skills.</span></h1>
+        <p class="hero-lead">A focused path from computer science fundamentals to backend development with Java, Spring Boot, SQL, Git and Docker. Learn one layer at a time, build projects, and track your progress.</p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="#roadmap">Start the roadmap <span>→</span></a>
+          <button class="btn secondary" id="continueBtn">Continue where I left off</button>
+        </div>
+
+        <div class="trust-row" aria-label="Roadmap features">
+          <span>✓ No account</span>
+          <span>✓ Progress saved locally</span>
+          <span>✓ Free learning resources</span>
+          <span>✓ GitHub Pages ready</span>
+        </div>
+      </div>
+
+      <aside class="dashboard-card" aria-label="Learning progress dashboard">
+        <div class="dashboard-top">
+          <div>
+            <span class="kicker">YOUR PROGRESS</span>
+            <strong id="progressPercent">0%</strong>
+          </div>
+          <div class="status-dot"><i></i><span id="statusText">Getting started</span></div>
+        </div>
+
+        <div class="progress-track" aria-hidden="true"><div class="progress-bar" id="progressBar"></div></div>
+
+        <div class="metrics">
+          <div class="metric"><strong id="doneCount">0</strong><span>Completed</span></div>
+          <div class="metric"><strong id="totalCount">0</strong><span>Topics</span></div>
+          <div class="metric"><strong id="stageCount">8</strong><span>Stages</span></div>
+        </div>
+
+        <div class="next-up">
+          <span class="kicker">NEXT UP</span>
+          <div class="next-up-row">
+            <div class="next-icon">↗</div>
+            <div><strong id="nextTopic">CS50 — Introduction to Computer Science</strong><span id="nextStage">Stage 01 · Foundations</span></div>
+          </div>
+        </div>
+
+        <button class="text-button danger" id="resetProgress">Reset progress</button>
+      </aside>
+    </section>
+
+    <section class="section container" id="roadmap">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">THE ROADMAP</span>
+          <h2>From zero to backend developer.</h2>
+        </div>
+        <div class="section-tools">
+          <div class="filter-group" role="group" aria-label="Roadmap filter">
+            <button class="filter active" data-filter="all">All</button>
+            <button class="filter" data-filter="todo">To do</button>
+            <button class="filter" data-filter="done">Done</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="roadmap-shell">
+        <div class="roadmap-line" aria-hidden="true"></div>
+        <div class="roadmap" id="roadmapList"></div>
+      </div>
+    </section>
+
+    <section class="section resources-section" id="resources">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">CURATED RESOURCES</span>
+            <h2>Learn from strong material.</h2>
+          </div>
+          <p>These are the core resources referenced by the learning path, grouped so you always know what to open next.</p>
+        </div>
+        <div class="resource-grid" id="resourceGrid"></div>
+      </div>
+    </section>
+
+    <section class="section container" id="projects">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">BUILD, DON'T JUST WATCH</span>
+          <h2>Projects that prove you learned it.</h2>
+        </div>
+        <p>Every major phase should end with something you can run, explain and publish.</p>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card featured">
+          <div class="project-number">01</div>
+          <div class="project-body">
+            <div class="project-meta"><span>FOUNDATIONS</span><span>Beginner</span></div>
+            <h3>Command-line Task Manager</h3>
+            <p>Build a terminal application in Java with classes, collections, file persistence, exception handling and tests.</p>
+            <div class="tags"><b>Java</b><b>OOP</b><b>Files</b><b>Testing</b></div>
+            <div class="deliverable">Deliverable: a clean GitHub repository with README and usage examples.</div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">02</div>
+          <div class="project-body">
+            <div class="project-meta"><span>BACKEND</span><span>Intermediate</span></div>
+            <h3>Library REST API</h3>
+            <p>Create a real CRUD API with validation, error handling, persistence and API documentation.</p>
+            <div class="tags"><b>Spring Boot</b><b>REST</b><b>PostgreSQL</b></div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">03</div>
+          <div class="project-body">
+            <div class="project-meta"><span>SECURITY</span><span>Intermediate</span></div>
+            <h3>Authenticated API</h3>
+            <p>Add users, roles, login, authorization and protected endpoints to an existing backend.</p>
+            <div class="tags"><b>Spring Security</b><b>JWT</b><b>OpenAPI</b></div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-number">04</div>
+          <div class="project-body">
+            <div class="project-meta"><span>DELIVERY</span><span>Intermediate</span></div>
+            <h3>Containerized Deployment</h3>
+            <p>Dockerize your API and database with Docker Compose and document how anyone can run it locally.</p>
+            <div class="tags"><b>Docker</b><b>Compose</b><b>GitHub</b></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section principles" id="rules">
+      <div class="container principles-grid">
+        <div class="principles-copy">
+          <span class="eyebrow">STUDY RULES</span>
+          <h2>A roadmap only works if you use it correctly.</h2>
+          <p>The goal is not to finish content as fast as possible. The goal is to become capable of solving increasingly difficult problems without being dependent on tutorials.</p>
+        </div>
+        <div class="rules-list">
+          <article><span>01</span><div><h3>Code every day you study</h3><p>Watching a lesson does not count as practice. Rebuild examples without copying them.</p></div></article>
+          <article><span>02</span><div><h3>Do not learn five stacks at once</h3><p>Choose one main language and one backend ecosystem long enough to become useful with it.</p></div></article>
+          <article><span>03</span><div><h3>Use documentation before tutorials</h3><p>Train the skill professional developers use every day: finding accurate answers independently.</p></div></article>
+          <article><span>04</span><div><h3>Ship your projects</h3><p>Every meaningful project should end in GitHub with setup instructions, screenshots or API examples.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-section">
+      <div class="container quote-inner">
+        <span class="code">while (learning) {</span>
+        <h2>Study enough to understand.<br><em>Build enough to remember.</em></h2>
+        <p>When you get stuck: read the error, search the docs, isolate the problem, test an idea, and keep moving.</p>
+        <span class="code">}</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <div class="footer-brand"><strong>&lt;/&gt; DevPath</strong><p>A personal programming roadmap designed to keep learning focused.</p></div>
+    <div class="footer-links"><a href="#roadmap">Roadmap</a><a href="#resources">Resources</a><a href="#projects">Projects</a><a href="#top">Back to top ↑</a></div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
