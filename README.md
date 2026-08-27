@@ -1,60 +1,48 @@
-# DevPath — Programming Learning Roadmap
+# Dev Roadmap 2026/2027
 
-DevPath is a static, interactive learning roadmap designed to make a self-taught programming path easier to follow.
+A free, open learning guide for people who want a clearer path into programming.
 
-The roadmap follows this general progression:
+This is **not a course** and there is nothing to buy. The project exists to help beginners organize what to study, practice consistently and build real projects.
 
-**Computer Science → Linux → Algorithms & Data Structures → Web Fundamentals → Backend Roadmap → Java → Spring Boot + SQL → Git/GitHub + Docker**
+## What is included
 
-## Features
-
-- Fully English interface
-- Interactive roadmap with per-topic checklists
-- Overall and per-stage progress tracking
-- Progress saved with `localStorage`
-- “Continue where I left off” shortcut
-- Filter roadmap by all / to do / completed
-- Curated study resources
-- Project milestones for hands-on practice
-- Dark and light themes
+- Programming roadmap from foundations to backend development
+- Progress saved locally in the browser
+- Search and filters
+- Project ideas
+- General English track
+- AI literacy track
+- Career track
+- Dark/light mode
 - Responsive layout
-- No framework, account, database or build step
-- Ready for GitHub Pages
+- GitHub Pages ready
+
+## Philosophy
+
+Use this roadmap as a map, not a rulebook.
+
+Everyone learns differently. Skip what you already know, slow down where you struggle and build things while you study.
+
+A useful loop is:
+
+```text
+Learn → Practice → Build → Explain → Repeat
+```
 
 ## Run locally
 
-You can open `index.html` directly or run a local HTTP server.
+Open `index.html` in your browser.
 
-```bash
-python -m http.server 8000
-```
+## Publish on GitHub Pages
 
-Then visit:
+1. Push the files to the `main` branch.
+2. Open **Settings → Pages**.
+3. Choose **Deploy from a branch**.
+4. Select `main` and `/ (root)`.
+5. Save.
 
-```text
-http://localhost:8000
-```
+## Contributing
 
-## Publish with GitHub Pages
+Feel free to fork the project, adapt the roadmap, improve explanations or add better resources.
 
-1. Create a new GitHub repository.
-2. Add these files to the repository.
-3. Push them to the `main` branch.
-4. Open **Settings → Pages**.
-5. Under **Build and deployment**, select **Deploy from a branch**.
-6. Select `main` and `/ (root)`.
-7. Save.
-
-## Project structure
-
-```text
-dev-roadmap/
-├── index.html
-├── styles.css
-├── script.js
-└── README.md
-```
-
-## Notes
-
-Progress is stored only in the visitor's browser. Clearing browser storage or opening the site on a different device will not sync progress.
+The goal is simply to make learning programming less confusing.
