@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="A complete 2026/2027 roadmap to learn programming from zero to job-ready software developer." />
+  <meta id="metaDescription" name="description" content="A complete 2026/2027 roadmap to learn programming from zero to job-ready software developer." />
   <meta name="theme-color" content="#0b0d12" />
   <title>Dev Roadmap 2026/2027</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,16 +23,27 @@
     </a>
 
     <nav class="desktop-nav">
-      <a href="#roadmap">Roadmap</a>
-      <a href="#resources">Resources</a>
-      <a href="#projects">Projects</a>
-      <a href="#parallel">Parallel Tracks</a>
-      <a href="#principles">Principles</a>
+      <a href="#roadmap" data-i18n="navRoadmap">Roadmap</a>
+      <a href="#resources" data-i18n="navResources">Resources</a>
+      <a href="#projects" data-i18n="navProjects">Projects</a>
+      <a href="#parallel" data-i18n="navParallel">Parallel Tracks</a>
+      <a href="#principles" data-i18n="navPrinciples">Principles</a>
     </nav>
 
     <div class="top-actions">
-      <button id="themeBtn" class="icon-btn" aria-label="Toggle theme">☼</button>
-      <a class="github-btn" href="https://github.com/davidphilippesilva" target="_blank" rel="noreferrer">Github ↗</a>
+      <div class="language-switcher">
+        <button id="languageBtn" class="language-btn" aria-haspopup="true" aria-expanded="false" data-i18n-aria="languageAria" aria-label="Change language">
+          <span class="lang-flag" aria-hidden="true"><svg viewBox="0 0 28 20" aria-hidden="true"><rect width="28" height="20" rx="2" fill="#fff"/><path fill="#B22234" d="M0 0h28v2H0zm0 4h28v2H0zm0 4h28v2H0zm0 4h28v2H0zm0 4h28v2H0z"/><rect width="12" height="10.8" rx="1" fill="#3C3B6E"/><g fill="#fff"><circle cx="2" cy="2" r=".6"/><circle cx="5" cy="2" r=".6"/><circle cx="8" cy="2" r=".6"/><circle cx="2" cy="5" r=".6"/><circle cx="5" cy="5" r=".6"/><circle cx="8" cy="5" r=".6"/><circle cx="2" cy="8" r=".6"/><circle cx="5" cy="8" r=".6"/><circle cx="8" cy="8" r=".6"/></g></svg></span>
+          <span class="lang-chevron">⌄</span>
+        </button>
+        <div id="languageMenu" class="language-menu" role="menu">
+          <button data-lang="en" class="language-option active" role="menuitem" aria-label="English" title="English"><svg viewBox="0 0 28 20" aria-hidden="true"><rect width="28" height="20" rx="2" fill="#fff"/><path fill="#B22234" d="M0 0h28v2H0zm0 4h28v2H0zm0 4h28v2H0zm0 4h28v2H0zm0 4h28v2H0z"/><rect width="12" height="10.8" rx="1" fill="#3C3B6E"/><g fill="#fff"><circle cx="2" cy="2" r=".6"/><circle cx="5" cy="2" r=".6"/><circle cx="8" cy="2" r=".6"/><circle cx="2" cy="5" r=".6"/><circle cx="5" cy="5" r=".6"/><circle cx="8" cy="5" r=".6"/><circle cx="2" cy="8" r=".6"/><circle cx="5" cy="8" r=".6"/><circle cx="8" cy="8" r=".6"/></g></svg></button>
+          <button data-lang="pt" class="language-option" role="menuitem" aria-label="Português" title="Português"><svg viewBox="0 0 28 20" aria-hidden="true"><rect width="28" height="20" rx="2" fill="#009B3A"/><path fill="#FFDF00" d="M14 2.2 25 10 14 17.8 3 10z"/><circle cx="14" cy="10" r="4.2" fill="#002776"/><path d="M10.5 9.2c2.6-.6 5.3-.3 7.7.8" fill="none" stroke="#fff" stroke-width=".8"/></svg></button>
+          <button data-lang="fr" class="language-option" role="menuitem" aria-label="Français" title="Français"><svg viewBox="0 0 28 20" aria-hidden="true"><rect width="28" height="20" rx="2" fill="#fff"/><path fill="#0055A4" d="M0 0h9.34v20H0z"/><path fill="#EF4135" d="M18.66 0H28v20h-9.34z"/></svg></button>
+        </div>
+      </div>
+      <button id="themeBtn" class="icon-btn" data-i18n-aria="toggleTheme" aria-label="Toggle theme">☼</button>
+      <a class="github-btn" href="https://github.com/davidphilippesilva/" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
     </div>
   </header>
 
@@ -40,24 +51,24 @@
     <section class="hero">
       <div class="hero-grid">
         <div>
-          <div class="eyebrow">FREE COMMUNITY GUIDE</div>
-          <h1>Programming roadmap<br><span>2026/2027</span></h1>
+          <div class="eyebrow" data-i18n="heroEyebrow">FREE COMMUNITY GUIDE</div>
+          <h1><span data-i18n="heroTitle">Programming roadmap</span><br><span>2026/2027</span></h1>
           <p class="hero-copy">
-            A simple, free guide for anyone learning programming. No course, no paywall, no promises — just a structured path, useful resources and practical milestones.
+            <span data-i18n="heroCopy">A simple, free guide for anyone learning programming. No course, no paywall, no promises — just a structured path, useful resources and practical milestones.</span>
           </p>
 
           <div class="hero-actions">
-            <a href="#roadmap" class="primary-btn">Open the roadmap ↓</a>
-            <button id="continueBtn" class="secondary-btn">Continue from last topic</button>
+            <a href="#roadmap" class="primary-btn" data-i18n="openRoadmap">Open the roadmap ↓</a>
+            <button id="continueBtn" class="secondary-btn" data-i18n="continue">Continue from last topic</button>
           </div>
 
-          <p class="community-note">Made to help people study at their own pace. Fork it, adapt it, share it.</p>
+          <p class="community-note" data-i18n="communityNote">Made to help people study at their own pace. Fork it, adapt it, share it.</p>
         </div>
 
         <aside class="progress-card">
           <div class="progress-card-head">
             <div>
-              <span class="muted-label">YOUR PROGRESS</span>
+              <span class="muted-label" data-i18n="yourProgress">YOUR PROGRESS</span>
               <strong id="progressPercent">0%</strong>
             </div>
             <div class="ring" id="progressRing">
@@ -68,13 +79,13 @@
           <div class="progress-bar"><span id="progressBar"></span></div>
 
           <div class="stats">
-            <div><strong id="doneCount">0</strong><span>Completed</span></div>
-            <div><strong id="topicCount">0</strong><span>Topics</span></div>
-            <div><strong id="stageCount">0</strong><span>Stages</span></div>
+            <div><strong id="doneCount">0</strong><span data-i18n="completed">Completed</span></div>
+            <div><strong id="topicCount">0</strong><span data-i18n="topics">Topics</span></div>
+            <div><strong id="stageCount">0</strong><span data-i18n="stages">Stages</span></div>
           </div>
 
           <div class="next-box">
-            <span class="muted-label">NEXT UP</span>
+            <span class="muted-label" data-i18n="nextUp">NEXT UP</span>
             <strong id="nextTopic">Start your first stage</strong>
             <small id="nextStage">Stage 01</small>
           </div>
@@ -83,27 +94,27 @@
     </section>
 
     <section class="principle-strip">
-      <div><span>01</span><strong>Learn</strong><small>Understand the concept</small></div>
-      <div><span>02</span><strong>Practice</strong><small>Use it immediately</small></div>
-      <div><span>03</span><strong>Build</strong><small>Create without tutorials</small></div>
-      <div><span>04</span><strong>Explain</strong><small>Teach it back</small></div>
-      <div><span>05</span><strong>Repeat</strong><small>Review and improve</small></div>
+      <div><span>01</span><strong data-i18n="stepLearn">Learn</strong><small data-i18n="stepLearnDesc">Understand the concept</small></div>
+      <div><span>02</span><strong data-i18n="stepPractice">Practice</strong><small data-i18n="stepPracticeDesc">Use it immediately</small></div>
+      <div><span>03</span><strong data-i18n="stepBuild">Build</strong><small data-i18n="stepBuildDesc">Create without tutorials</small></div>
+      <div><span>04</span><strong data-i18n="stepExplain">Explain</strong><small data-i18n="stepExplainDesc">Teach it back</small></div>
+      <div><span>05</span><strong data-i18n="stepRepeat">Repeat</strong><small data-i18n="stepRepeatDesc">Review and improve</small></div>
     </section>
 
     <section class="section" id="roadmap">
       <div class="section-head">
         <div>
-          <div class="eyebrow">LEARNING ROADMAP</div>
-          <h2>From zero to software developer</h2>
-          <p>Follow the order. Don't rush to frameworks before understanding the fundamentals.</p>
+          <div class="eyebrow" data-i18n="learningRoadmap">LEARNING ROADMAP</div>
+          <h2 data-i18n="zeroToDev">From zero to software developer</h2>
+          <p data-i18n="followOrder">Follow the order. Don&apos;t rush to frameworks before understanding the fundamentals.</p>
         </div>
 
         <div class="roadmap-controls">
-          <input id="searchInput" type="search" placeholder="Search topics..." aria-label="Search roadmap topics" />
+          <input id="searchInput" type="search" placeholder="Search topics..." data-i18n-placeholder="searchTopics" data-i18n-aria="searchAria" aria-label="Search roadmap topics" />
           <div class="filter-group">
-            <button class="filter active" data-filter="all">All</button>
-            <button class="filter" data-filter="todo">To do</button>
-            <button class="filter" data-filter="done">Done</button>
+            <button class="filter active" data-filter="all" data-i18n="filterAll">All</button>
+            <button class="filter" data-filter="todo" data-i18n="filterTodo">To do</button>
+            <button class="filter" data-filter="done" data-i18n="filterDone">Done</button>
           </div>
         </div>
       </div>
@@ -115,86 +126,80 @@
     <section class="section resources-section" id="resources">
       <div class="section-head resources-heading">
         <div>
-          <div class="eyebrow">CURATED RESOURCES</div>
-          <h2>Good places to learn from</h2>
+          <div class="eyebrow" data-i18n="curatedResources">CURATED RESOURCES</div>
+          <h2 data-i18n="goodPlaces">Good places to learn from</h2>
         </div>
-        <p class="resources-intro">
-          A small collection of resources referenced throughout the roadmap.
-          You do not need to complete all of them — open what helps with the stage you are studying.
-        </p>
+        <p class="resources-intro" data-i18n="resourcesIntro">A small collection of resources referenced throughout the roadmap. You do not need to complete all of them — open what helps with the stage you are studying.</p>
       </div>
 
       <div class="resources-grid">
         <a class="resource-card" href="https://cs50.harvard.edu/x/" target="_blank" rel="noopener noreferrer">
           <div class="resource-top"><span>HARVARD</span><span class="resource-arrow">↗</span></div>
           <h3>CS50 — Introduction to Computer Science</h3>
-          <p>Computer science fundamentals, algorithms, memory, problem-solving and programming.</p>
-          <small>Computer Science</small>
+          <p data-i18n="resCs50Desc">Computer science fundamentals, algorithms, memory, problem-solving and programming.</p>
+          <small data-i18n="resComputerScience">Computer Science</small>
         </a>
 
         <a class="resource-card" href="https://theprimeagen.github.io/fem-algos/" target="_blank" rel="noopener noreferrer">
-          <div class="resource-top"><span>ALGORITHMS</span><span class="resource-arrow">↗</span></div>
+          <div class="resource-top"><span data-i18n="resAlgorithms">ALGORITHMS</span><span class="resource-arrow">↗</span></div>
           <h3>The Last Algorithms Course You'll Need</h3>
-          <p>A practical introduction to algorithms, complexity and fundamental data structures.</p>
-          <small>Algorithms & Data Structures</small>
+          <p data-i18n="resAlgoDesc">A practical introduction to algorithms, complexity and fundamental data structures.</p>
+          <small data-i18n="resAlgoCat">Algorithms & Data Structures</small>
         </a>
 
         <a class="resource-card" href="https://www.freecodecamp.org/learn/" target="_blank" rel="noopener noreferrer">
-          <div class="resource-top"><span>CURRICULUM</span><span class="resource-arrow">↗</span></div>
+          <div class="resource-top"><span data-i18n="resCurriculum">CURRICULUM</span><span class="resource-arrow">↗</span></div>
           <h3>freeCodeCamp</h3>
-          <p>Free interactive learning covering web development, JavaScript, Python, databases and more.</p>
-          <small>Web Development</small>
+          <p data-i18n="resFccDesc">Free interactive learning covering web development, JavaScript, Python, databases and more.</p>
+          <small data-i18n="resWebDev">Web Development</small>
         </a>
 
         <a class="resource-card" href="https://roadmap.sh/backend" target="_blank" rel="noopener noreferrer">
           <div class="resource-top"><span>ROADMAP</span><span class="resource-arrow">↗</span></div>
           <h3>roadmap.sh — Backend</h3>
-          <p>A visual overview of the knowledge areas commonly expected from backend developers.</p>
-          <small>Career Direction</small>
+          <p data-i18n="resRoadmapDesc">A visual overview of the knowledge areas commonly expected from backend developers.</p>
+          <small data-i18n="resCareerDirection">Career Direction</small>
         </a>
 
         <a class="resource-card" href="https://java-programming.mooc.fi/" target="_blank" rel="noopener noreferrer">
           <div class="resource-top"><span>JAVA</span><span class="resource-arrow">↗</span></div>
           <h3>Java Programming MOOC — Helsinki</h3>
-          <p>A free Java course with extensive exercises covering programming and object-oriented concepts.</p>
+          <p data-i18n="resJavaMoocDesc">A free Java course with extensive exercises covering programming and object-oriented concepts.</p>
           <small>Java</small>
         </a>
 
         <a class="resource-card" href="https://www.youtube.com/@amigoscode" target="_blank" rel="noopener noreferrer">
           <div class="resource-top"><span>JAVA</span><span class="resource-arrow">↗</span></div>
           <h3>Amigoscode</h3>
-          <p>Java, Spring Boot, backend engineering and software development tutorials.</p>
+          <p data-i18n="resAmigosDesc">Java, Spring Boot, backend engineering and software development tutorials.</p>
           <small>Java / Spring</small>
         </a>
 
         <a class="resource-card" href="https://spring.academy/" target="_blank" rel="noopener noreferrer">
           <div class="resource-top"><span>SPRING</span><span class="resource-arrow">↗</span></div>
           <h3>Spring Academy</h3>
-          <p>Official guided learning for Spring, Spring Boot and the broader Spring ecosystem.</p>
+          <p data-i18n="resSpringDesc">Official guided learning for Spring, Spring Boot and the broader Spring ecosystem.</p>
           <small>Spring Boot</small>
         </a>
 
         <a class="resource-card" href="https://sqlbolt.com/" target="_blank" rel="noopener noreferrer">
           <div class="resource-top"><span>SQL</span><span class="resource-arrow">↗</span></div>
           <h3>SQLBolt</h3>
-          <p>Interactive lessons for SQL queries, JOINs, relational data and database fundamentals.</p>
-          <small>Databases</small>
+          <p data-i18n="resSqlDesc">Interactive lessons for SQL queries, JOINs, relational data and database fundamentals.</p>
+          <small data-i18n="resDatabases">Databases</small>
         </a>
 
         <a class="resource-card" href="https://www.youtube.com/watch?v=pg19Z8LL06w" target="_blank" rel="noopener noreferrer">
           <div class="resource-top"><span>DOCKER</span><span class="resource-arrow">↗</span></div>
           <h3>Docker Crash Course — TechWorld with Nana</h3>
-          <p>A practical introduction to images, containers, registries, ports and Dockerfiles.</p>
+          <p data-i18n="resDockerDesc">A practical introduction to images, containers, registries, ports and Dockerfiles.</p>
           <small>DevOps</small>
         </a>
       </div>
 
       <div class="resource-note">
-        <span>Note</span>
-        <p>
-          These are suggestions, not requirements. Prefer official documentation and hands-on practice,
-          and replace any resource that does not match the way you learn best.
-        </p>
+        <span data-i18n="resourceNoteLabel">Note</span>
+        <p data-i18n="resourceNote">These are suggestions, not requirements. Prefer official documentation and hands-on practice, and replace any resource that does not match the way you learn best.</p>
       </div>
     </section>
 
@@ -202,48 +207,48 @@
     <section class="section" id="projects">
       <div class="section-head">
         <div>
-          <div class="eyebrow">PROJECT IDEAS</div>
-          <h2>Project milestones</h2>
-          <p>Every major phase ends with something you can run, explain, improve and show.</p>
+          <div class="eyebrow" data-i18n="projectIdeas">PROJECT IDEAS</div>
+          <h2 data-i18n="projectMilestones">Project milestones</h2>
+          <p data-i18n="projectCopy">Every major phase ends with something you can run, explain, improve and show.</p>
         </div>
       </div>
 
       <div class="projects-grid">
         <article class="project-card">
-          <span class="project-level">LEVEL 01</span>
-          <h3>CLI Task Manager</h3>
-          <p>Practice variables, loops, functions, collections and file persistence.</p>
-          <div class="tag-row"><span>CLI</span><span>Logic</span><span>Files</span></div>
+          <span class="project-level" data-i18n="level01">LEVEL 01</span>
+          <h3 data-i18n="proj1Title">CLI Task Manager</h3>
+          <p data-i18n="proj1Desc">Practice variables, loops, functions, collections and file persistence.</p>
+          <div class="tag-row"><span>CLI</span><span data-i18n="tagLogic">Logic</span><span data-i18n="tagFiles">Files</span></div>
         </article>
         <article class="project-card">
-          <span class="project-level">LEVEL 02</span>
-          <h3>Banking Simulator</h3>
-          <p>Model accounts, transfers and rules with OOP, exceptions and collections.</p>
-          <div class="tag-row"><span>Java</span><span>OOP</span><span>Testing</span></div>
+          <span class="project-level" data-i18n="level02">LEVEL 02</span>
+          <h3 data-i18n="proj2Title">Banking Simulator</h3>
+          <p data-i18n="proj2Desc">Model accounts, transfers and rules with OOP, exceptions and collections.</p>
+          <div class="tag-row"><span>Java</span><span>OOP</span><span data-i18n="tagTesting">Testing</span></div>
         </article>
         <article class="project-card featured">
-          <span class="project-level">LEVEL 03</span>
-          <h3>Task Management API</h3>
-          <p>Build a real REST API with Spring Boot, PostgreSQL, validation and tests.</p>
+          <span class="project-level" data-i18n="level03">LEVEL 03</span>
+          <h3 data-i18n="proj3Title">Task Management API</h3>
+          <p data-i18n="proj3Desc">Build a real REST API with Spring Boot, PostgreSQL, validation and tests.</p>
           <div class="tag-row"><span>Spring</span><span>REST</span><span>PostgreSQL</span></div>
         </article>
         <article class="project-card">
-          <span class="project-level">LEVEL 04</span>
-          <h3>Auth Service</h3>
-          <p>Add registration, login, hashing, roles, permissions and secure sessions or JWT.</p>
-          <div class="tag-row"><span>Security</span><span>JWT</span><span>OAuth</span></div>
+          <span class="project-level" data-i18n="level04">LEVEL 04</span>
+          <h3 data-i18n="proj4Title">Auth Service</h3>
+          <p data-i18n="proj4Desc">Add registration, login, hashing, roles, permissions and secure sessions or JWT.</p>
+          <div class="tag-row"><span data-i18n="tagSecurity">Security</span><span>JWT</span><span>OAuth</span></div>
         </article>
         <article class="project-card">
-          <span class="project-level">LEVEL 05</span>
-          <h3>Personal Finance Platform</h3>
-          <p>A serious portfolio project with business rules, reporting, Docker and CI/CD.</p>
-          <div class="tag-row"><span>Portfolio</span><span>Docker</span><span>CI/CD</span></div>
+          <span class="project-level" data-i18n="level05">LEVEL 05</span>
+          <h3 data-i18n="proj5Title">Personal Finance Platform</h3>
+          <p data-i18n="proj5Desc">A serious portfolio project with business rules, reporting, Docker and CI/CD.</p>
+          <div class="tag-row"><span data-i18n="tagPortfolio">Portfolio</span><span>Docker</span><span>CI/CD</span></div>
         </article>
         <article class="project-card">
-          <span class="project-level">LEVEL 06</span>
-          <h3>E-commerce Backend</h3>
-          <p>Products, inventory, orders, payments, coupons, roles and audit logs.</p>
-          <div class="tag-row"><span>Architecture</span><span>Business</span><span>Backend</span></div>
+          <span class="project-level" data-i18n="level06">LEVEL 06</span>
+          <h3 data-i18n="proj6Title">E-commerce Backend</h3>
+          <p data-i18n="proj6Desc">Products, inventory, orders, payments, coupons, roles and audit logs.</p>
+          <div class="tag-row"><span data-i18n="tagArchitecture">Architecture</span><span data-i18n="tagBusiness">Business</span><span>Backend</span></div>
         </article>
       </div>
     </section>
@@ -251,49 +256,49 @@
     <section class="section" id="parallel">
       <div class="section-head">
         <div>
-          <div class="eyebrow">PARALLEL TRACKS</div>
-          <h2>Skills that grow with you</h2>
-          <p>Programming is only one part of becoming a strong developer.</p>
+          <div class="eyebrow" data-i18n="parallelTracks">PARALLEL TRACKS</div>
+          <h2 data-i18n="skillsGrow">Skills that grow with you</h2>
+          <p data-i18n="parallelCopy">Programming is only one part of becoming a strong developer.</p>
         </div>
       </div>
 
       <div class="parallel-grid">
         <article class="track-card">
           <div class="track-icon">EN</div>
-          <h3>General English</h3>
-          <p>Build listening, speaking, reading, writing and vocabulary — not just technical English.</p>
+          <h3 data-i18n="generalEnglish">General English</h3>
+          <p data-i18n="englishDesc">Build listening, speaking, reading, writing and vocabulary — not just technical English.</p>
           <ul>
-            <li>15–30 min listening daily</li>
-            <li>Read content you actually enjoy</li>
-            <li>Practice speaking out loud</li>
-            <li>Learn vocabulary in context</li>
-            <li>Aim for B2 long term</li>
+            <li data-i18n="english1">15–30 min listening daily</li>
+            <li data-i18n="english2">Read content you actually enjoy</li>
+            <li data-i18n="english3">Practice speaking out loud</li>
+            <li data-i18n="english4">Learn vocabulary in context</li>
+            <li data-i18n="english5">Aim for B2 long term</li>
           </ul>
         </article>
 
         <article class="track-card">
           <div class="track-icon">AI</div>
-          <h3>AI Literacy</h3>
-          <p>Use AI as a teacher, reviewer and pair programmer without outsourcing your thinking.</p>
+          <h3 data-i18n="aiLiteracy">AI Literacy</h3>
+          <p data-i18n="aiDesc">Use AI as a teacher, reviewer and pair programmer without outsourcing your thinking.</p>
           <ul>
-            <li>Attempt before asking</li>
-            <li>Explain your hypothesis</li>
-            <li>Ask for hints before code</li>
-            <li>Review generated code critically</li>
-            <li>Never ship what you cannot explain</li>
+            <li data-i18n="ai1">Attempt before asking</li>
+            <li data-i18n="ai2">Explain your hypothesis</li>
+            <li data-i18n="ai3">Ask for hints before code</li>
+            <li data-i18n="ai4">Review generated code critically</li>
+            <li data-i18n="ai5">Never ship what you cannot explain</li>
           </ul>
         </article>
 
         <article class="track-card">
           <div class="track-icon">CR</div>
-          <h3>Career</h3>
-          <p>Start building your professional profile before you feel completely ready.</p>
+          <h3 data-i18n="career">Career</h3>
+          <p data-i18n="careerDesc">Start building your professional profile before you feel completely ready.</p>
           <ul>
-            <li>Keep GitHub clean</li>
-            <li>Write strong READMEs</li>
-            <li>Study real job descriptions</li>
-            <li>Build projects around recurring skills</li>
-            <li>Apply before you know everything</li>
+            <li data-i18n="career1">Keep GitHub clean</li>
+            <li data-i18n="career2">Write strong READMEs</li>
+            <li data-i18n="career3">Study real job descriptions</li>
+            <li data-i18n="career4">Build projects around recurring skills</li>
+            <li data-i18n="career5">Apply before you know everything</li>
           </ul>
         </article>
       </div>
@@ -302,37 +307,37 @@
     <section class="section" id="principles">
       <div class="section-head">
         <div>
-          <div class="eyebrow">USEFUL PRINCIPLES</div>
-          <h2>How to avoid wasting a year</h2>
+          <div class="eyebrow" data-i18n="usefulPrinciples">USEFUL PRINCIPLES</div>
+          <h2 data-i18n="avoidWaste">How to avoid wasting a year</h2>
         </div>
       </div>
 
       <div class="rules-grid">
-        <article><span>01</span><h3>One main language</h3><p>Do not rotate between Java, Python, JavaScript and C# every two weeks.</p></article>
-        <article><span>02</span><h3>30% learn, 70% do</h3><p>Watching code feels productive. Writing your own code creates skill.</p></article>
-        <article><span>03</span><h3>Errors are lessons</h3><p>Read the stack trace, inspect state, form a hypothesis, then ask for help.</p></article>
-        <article><span>04</span><h3>Monolith first</h3><p>Learn to build one good application before distributing complexity.</p></article>
-        <article><span>05</span><h3>Documentation wins</h3><p>Progress from videos to docs and eventually to reading source code.</p></article>
-        <article><span>06</span><h3>Optimize for independence</h3><p>The goal is not knowing everything. It is knowing how to figure things out.</p></article>
+        <article><span>01</span><h3 data-i18n="rule1Title">One main language</h3><p data-i18n="rule1Desc">Do not rotate between Java, Python, JavaScript and C# every two weeks.</p></article>
+        <article><span>02</span><h3 data-i18n="rule2Title">30% learn, 70% do</h3><p data-i18n="rule2Desc">Watching code feels productive. Writing your own code creates skill.</p></article>
+        <article><span>03</span><h3 data-i18n="rule3Title">Errors are lessons</h3><p data-i18n="rule3Desc">Read the stack trace, inspect state, form a hypothesis, then ask for help.</p></article>
+        <article><span>04</span><h3 data-i18n="rule4Title">Monolith first</h3><p data-i18n="rule4Desc">Learn to build one good application before distributing complexity.</p></article>
+        <article><span>05</span><h3 data-i18n="rule5Title">Documentation wins</h3><p data-i18n="rule5Desc">Progress from videos to docs and eventually to reading source code.</p></article>
+        <article><span>06</span><h3 data-i18n="rule6Title">Optimize for independence</h3><p data-i18n="rule6Desc">The goal is not knowing everything. It is knowing how to figure things out.</p></article>
       </div>
     </section>
 
     <section class="cta">
       <div>
-        <div class="eyebrow">ONE LAST NOTE</div>
-        <h2>Use this as a map, not as a rulebook.</h2>
-        <p>Everyone learns differently. Skip what you already know, revisit what you need, and build things along the way.</p>
+        <div class="eyebrow" data-i18n="lastNote">ONE LAST NOTE</div>
+        <h2 data-i18n="mapNotRulebook">Use this as a map, not as a rulebook.</h2>
+        <p data-i18n="everyoneLearns">Everyone learns differently. Skip what you already know, revisit what you need, and build things along the way.</p>
       </div>
-      <a href="#roadmap" class="primary-btn">Back to roadmap ↑</a>
+      <a href="#roadmap" class="primary-btn" data-i18n="backRoadmap">Back to roadmap ↑</a>
     </section>
   </main>
 
   <footer>
     <div>
       <strong>Dev Roadmap 2026/2027</strong>
-      <span>Free, open and made to help people learn.</span>
+      <span data-i18n="freeOpen">Free, open and made to help people learn.</span>
     </div>
-    <button id="resetBtn">Reset progress</button>
+    <button id="resetBtn" data-i18n="resetProgress">Reset progress</button>
   </footer>
 
   <script src="script.js"></script>

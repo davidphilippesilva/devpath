@@ -14,6 +14,9 @@ This is **not a course** and there is nothing to buy. The project exists to help
 - General English track
 - AI literacy track
 - Career track
+- Language switcher: English, Portuguese and French (flag selector)
+- English as the default language
+- Full interface translation, including roadmap topics, projects and resources
 - Dark/light mode
 - Responsive layout
 - GitHub Pages ready
@@ -47,3 +50,6 @@ Open `index.html` in your browser.
 Feel free to fork the project, adapt the roadmap, improve explanations or add better resources.
 
 The goal is simply to make learning programming less confusing.
+
+- Reliable SVG flag selector (US / Brazil / France)
+- Restored curated resources card grid

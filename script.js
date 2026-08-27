@@ -1,175 +1,52 @@
-const stages = [
-{
-  title:"How to Learn Programming",
-  subtitle:"Build the habits that prevent tutorial hell.",
-  topics:[
-    ["Understand the Learn → Practice → Build loop","Turn passive learning into active skill.","METHOD"],
-    ["Use the 30/70 rule","Spend less time watching and more time solving and building.","METHOD"],
-    ["Learn to explain concepts","If you can teach it simply, you probably understand it.","METHOD"],
-    ["Create a consistent weekly routine","Consistency beats random 8-hour study marathons.","HABIT"]
-  ]
-},
-{
-  title:"Computer Science Foundations",
-  subtitle:"Understand what your code is actually running on.",
-  topics:[
-    ["CS50x","Study programming, memory, algorithms, C, Python, SQL and web fundamentals.","COURSE"],
-    ["Variables, types and operators","The basic building blocks of programs.","CORE"],
-    ["Conditions, loops and functions","Control program flow and reuse logic.","CORE"],
-    ["Arrays, strings and memory basics","Understand how data is represented and accessed.","CORE"],
-    ["CPU, RAM, storage and processes","Learn enough computer fundamentals to stop treating the machine as magic.","SYSTEMS"]
-  ]
-},
-{
-  title:"Algorithms & Data Structures",
-  subtitle:"Train problem solving without turning it into your whole identity.",
-  topics:[
-    ["Big O notation","Understand O(1), O(log n), O(n), O(n log n) and O(n²).","ALGO"],
-    ["Arrays, lists, stacks and queues","Core linear structures.","DS"],
-    ["Hash maps and hash sets","Fast lookup, uniqueness and counting patterns.","DS"],
-    ["Trees, graphs and heaps","Hierarchical, relational and priority structures.","DS"],
-    ["Binary search, DFS and BFS","Foundational search algorithms.","ALGO"],
-    ["Two pointers and sliding window","Common patterns for array/string problems.","PATTERN"],
-    ["LeetCode in moderation","One focused problem a day is enough early on.","PRACTICE"]
-  ]
-},
-{
-  title:"Java Core",
-  subtitle:"Use one language long enough to become genuinely comfortable.",
-  topics:[
-    ["Java syntax and core types","Variables, methods, arrays, strings, packages and enums.","JAVA"],
-    ["Object-oriented programming","Classes, objects, encapsulation, polymorphism, interfaces and composition.","JAVA"],
-    ["Collections and generics","List, Set, Map, Queue and generic types.","JAVA"],
-    ["Exceptions and stack traces","Handle failures and learn to debug from real errors.","JAVA"],
-    ["Immutability and equality","Understand records, equals, hashCode and safer object design.","JAVA"],
-    ["Testing basics","Write unit tests with JUnit before frameworks get complex.","TEST"]
-  ]
-},
-{
-  title:"Developer Environment",
-  subtitle:"Become comfortable working like a developer.",
-  topics:[
-    ["Terminal basics","pwd, ls, cd, mkdir, cp, mv, rm, cat, grep, find and curl.","TOOL"],
-    ["Linux or WSL","Use a reliable environment without turning distro-hopping into a hobby.","SYSTEM"],
-    ["Git fundamentals","Commit, branch, merge, pull, push and resolve conflicts.","GIT"],
-    ["GitHub workflow","Repositories, pull requests and readable READMEs.","GIT"],
-    ["Environment variables and PATH","Understand how programs find tools and configuration.","SYSTEM"]
-  ]
-},
-{
-  title:"Web Fundamentals",
-  subtitle:"Understand the web before using a backend framework.",
-  topics:[
-    ["Client, server and DNS","Know what happens between a browser and a server.","WEB"],
-    ["HTTP and HTTPS","Requests, responses, headers, methods and status codes.","WEB"],
-    ["JSON and REST","Model resources and design predictable APIs.","API"],
-    ["HTML and CSS basics","Understand the frontend you will eventually serve data to.","WEB"],
-    ["JavaScript and fetch() basics","Call APIs and understand browser-side behavior.","WEB"]
-  ]
-},
-{
-  title:"Databases & SQL",
-  subtitle:"Learn the database directly before hiding it behind an ORM.",
-  topics:[
-    ["PostgreSQL basics","Create databases, tables and relationships.","DB"],
-    ["SELECT, INSERT, UPDATE, DELETE","The essential SQL operations.","SQL"],
-    ["JOIN, GROUP BY and HAVING","Query relational data properly.","SQL"],
-    ["Keys and constraints","Primary keys, foreign keys and integrity rules.","DB"],
-    ["Indexes and query thinking","Understand why some queries are fast and others are not.","DB"],
-    ["Transactions and ACID","Keep business operations consistent.","DB"]
-  ]
-},
-{
-  title:"Spring Boot Backend",
-  subtitle:"Now use a framework because you understand the problems it solves.",
-  topics:[
-    ["Spring Core and dependency injection","Understand inversion of control instead of memorizing annotations.","SPRING"],
-    ["Controllers, services and repositories","Separate HTTP, business logic and persistence.","SPRING"],
-    ["DTOs and validation","Control API contracts and reject bad input.","API"],
-    ["Spring Data JPA","Map entities and relationships without forgetting SQL underneath.","SPRING"],
-    ["Error handling and API responses","Create predictable failures and useful messages.","API"],
-    ["Pagination and filtering","Design APIs that scale beyond tiny datasets.","API"]
-  ]
-},
-{
-  title:"Security & Testing",
-  subtitle:"Make software safer and prove that it behaves correctly.",
-  topics:[
-    ["Authentication vs authorization","Know the difference clearly.","SECURITY"],
-    ["Password hashing","Never store raw passwords.","SECURITY"],
-    ["Sessions, JWT and cookies","Understand common authentication strategies.","SECURITY"],
-    ["OAuth 2.0 and OpenID Connect","Learn delegated identity at a conceptual level.","SECURITY"],
-    ["Spring Security","Apply security rules intentionally.","SPRING"],
-    ["Integration tests and Testcontainers","Test your API and database together.","TEST"]
-  ]
-},
-{
-  title:"Docker, CI/CD & Deployment",
-  subtitle:"Move from 'works on my machine' to software others can run.",
-  topics:[
-    ["Docker images and containers","Understand Dockerfile, images, containers and ports.","DOCKER"],
-    ["Docker Compose","Run your API and PostgreSQL together.","DOCKER"],
-    ["Volumes and networks","Persist data and connect containers.","DOCKER"],
-    ["GitHub Actions","Build, test and package on every push.","CI/CD"],
-    ["Deploy a real application","Use a VPS, platform or cloud service and learn from production.","DEPLOY"],
-    ["Logs, secrets and environments","Operate software responsibly.","OPS"]
-  ]
-},
-{
-  title:"Software Architecture",
-  subtitle:"Learn architecture after you have software worth structuring.",
-  topics:[
-    ["Structured monolith","Start simple and keep clear boundaries.","ARCH"],
-    ["Controller / service / repository boundaries","Give each layer a reason to exist.","ARCH"],
-    ["Clean and hexagonal architecture concepts","Use them as design ideas, not folder religions.","ARCH"],
-    ["DDD basics","Model business concepts and rules intentionally.","ARCH"],
-    ["Caching with Redis","Use caching only when you understand the problem.","ARCH"],
-    ["Queues and messaging","Learn events, producers, consumers and eventual consistency.","ARCH"],
-    ["Microservices later","Study distributed systems only when a monolith is no longer enough.","ARCH"]
-  ]
-},
-{
-  title:"Job Readiness",
-  subtitle:"Turn skills into evidence and evidence into opportunities.",
-  topics:[
-    ["Build 2–3 serious projects","Quality beats dozens of unfinished repositories.","CAREER"],
-    ["Write excellent READMEs","Explain the problem, architecture, setup, trade-offs and future work.","CAREER"],
-    ["Study real job descriptions","Use recurring requirements to guide what you learn next.","CAREER"],
-    ["Practice explaining decisions","Interviews test thinking and communication, not just syntax.","CAREER"],
-    ["Prepare your resume and LinkedIn","Show what you built and what problems you solved.","CAREER"],
-    ["Start applying before you feel ready","You do not need to finish the entire roadmap.","CAREER"]
-  ]
-}
-];
+const stageData = {
+  en: [["How to Learn Programming","Build the habits that prevent tutorial hell.",[["Understand the Learn → Practice → Build loop","Turn passive learning into active skill.","METHOD"],["Use the 30/70 rule","Spend less time watching and more time solving and building.","METHOD"],["Learn to explain concepts","If you can teach it simply, you probably understand it.","METHOD"],["Create a consistent weekly routine","Consistency beats random 8-hour study marathons.","HABIT"]]],["Computer Science Foundations","Understand what your code is actually running on.",[["CS50x","Study programming, memory, algorithms, C, Python, SQL and web fundamentals.","COURSE"],["Variables, types and operators","The basic building blocks of programs.","CORE"],["Conditions, loops and functions","Control program flow and reuse logic.","CORE"],["Arrays, strings and memory basics","Understand how data is represented and accessed.","CORE"],["CPU, RAM, storage and processes","Learn enough computer fundamentals to stop treating the machine as magic.","SYSTEMS"]]],["Algorithms & Data Structures","Train problem solving without turning it into your whole identity.",[["Big O notation","Understand O(1), O(log n), O(n), O(n log n) and O(n²).","ALGO"],["Arrays, lists, stacks and queues","Core linear structures.","DS"],["Hash maps and hash sets","Fast lookup, uniqueness and counting patterns.","DS"],["Trees, graphs and heaps","Hierarchical, relational and priority structures.","DS"],["Binary search, DFS and BFS","Foundational search algorithms.","ALGO"],["Two pointers and sliding window","Common patterns for array/string problems.","PATTERN"],["LeetCode in moderation","One focused problem a day is enough early on.","PRACTICE"]]],["Java Core","Use one language long enough to become genuinely comfortable.",[["Java syntax and core types","Variables, methods, arrays, strings, packages and enums.","JAVA"],["Object-oriented programming","Classes, objects, encapsulation, polymorphism, interfaces and composition.","JAVA"],["Collections and generics","List, Set, Map, Queue and generic types.","JAVA"],["Exceptions and stack traces","Handle failures and learn to debug from real errors.","JAVA"],["Immutability and equality","Understand records, equals, hashCode and safer object design.","JAVA"],["Testing basics","Write unit tests with JUnit before frameworks get complex.","TEST"]]],["Developer Environment","Become comfortable working like a developer.",[["Terminal basics","pwd, ls, cd, mkdir, cp, mv, rm, cat, grep, find and curl.","TOOL"],["Linux or WSL","Use a reliable environment without turning distro-hopping into a hobby.","SYSTEM"],["Git fundamentals","Commit, branch, merge, pull, push and resolve conflicts.","GIT"],["GitHub workflow","Repositories, pull requests and readable READMEs.","GIT"],["Environment variables and PATH","Understand how programs find tools and configuration.","SYSTEM"]]],["Web Fundamentals","Understand the web before using a backend framework.",[["Client, server and DNS","Know what happens between a browser and a server.","WEB"],["HTTP and HTTPS","Requests, responses, headers, methods and status codes.","WEB"],["JSON and REST","Model resources and design predictable APIs.","API"],["HTML and CSS basics","Understand the frontend you will eventually serve data to.","WEB"],["JavaScript and fetch() basics","Call APIs and understand browser-side behavior.","WEB"]]],["Databases & SQL","Learn the database directly before hiding it behind an ORM.",[["PostgreSQL basics","Create databases, tables and relationships.","DB"],["SELECT, INSERT, UPDATE, DELETE","The essential SQL operations.","SQL"],["JOIN, GROUP BY and HAVING","Query relational data properly.","SQL"],["Keys and constraints","Primary keys, foreign keys and integrity rules.","DB"],["Indexes and query thinking","Understand why some queries are fast and others are not.","DB"],["Transactions and ACID","Keep business operations consistent.","DB"]]],["Spring Boot Backend","Now use a framework because you understand the problems it solves.",[["Spring Core and dependency injection","Understand inversion of control instead of memorizing annotations.","SPRING"],["Controllers, services and repositories","Separate HTTP, business logic and persistence.","SPRING"],["DTOs and validation","Control API contracts and reject bad input.","API"],["Spring Data JPA","Map entities and relationships without forgetting SQL underneath.","SPRING"],["Error handling and API responses","Create predictable failures and useful messages.","API"],["Pagination and filtering","Design APIs that scale beyond tiny datasets.","API"]]],["Security & Testing","Make software safer and prove that it behaves correctly.",[["Authentication vs authorization","Know the difference clearly.","SECURITY"],["Password hashing","Never store raw passwords.","SECURITY"],["Sessions, JWT and cookies","Understand common authentication strategies.","SECURITY"],["OAuth 2.0 and OpenID Connect","Learn delegated identity at a conceptual level.","SECURITY"],["Spring Security","Apply security rules intentionally.","SPRING"],["Integration tests and Testcontainers","Test your API and database together.","TEST"]]],["Docker, CI/CD & Deployment","Move from 'works on my machine' to software others can run.",[["Docker images and containers","Understand Dockerfile, images, containers and ports.","DOCKER"],["Docker Compose","Run your API and PostgreSQL together.","DOCKER"],["Volumes and networks","Persist data and connect containers.","DOCKER"],["GitHub Actions","Build, test and package on every push.","CI/CD"],["Deploy a real application","Use a VPS, platform or cloud service and learn from production.","DEPLOY"],["Logs, secrets and environments","Operate software responsibly.","OPS"]]],["Software Architecture","Learn architecture after you have software worth structuring.",[["Structured monolith","Start simple and keep clear boundaries.","ARCH"],["Controller / service / repository boundaries","Give each layer a reason to exist.","ARCH"],["Clean and hexagonal architecture concepts","Use them as design ideas, not folder religions.","ARCH"],["DDD basics","Model business concepts and rules intentionally.","ARCH"],["Caching with Redis","Use caching only when you understand the problem.","ARCH"],["Queues and messaging","Learn events, producers, consumers and eventual consistency.","ARCH"],["Microservices later","Study distributed systems only when a monolith is no longer enough.","ARCH"]]],["Job Readiness","Turn skills into evidence and evidence into opportunities.",[["Build 2–3 serious projects","Quality beats dozens of unfinished repositories.","CAREER"],["Write excellent READMEs","Explain the problem, architecture, setup, trade-offs and future work.","CAREER"],["Study real job descriptions","Use recurring requirements to guide what you learn next.","CAREER"],["Practice explaining decisions","Interviews test thinking and communication, not just syntax.","CAREER"],["Prepare your resume and LinkedIn","Show what you built and what problems you solved.","CAREER"],["Start applying before you feel ready","You do not need to finish the entire roadmap.","CAREER"]]]],
+  pt: [["Como aprender programação","Crie hábitos que evitam o ciclo infinito de tutoriais.",[["Entenda o ciclo Aprender → Praticar → Construir","Transforme aprendizado passivo em habilidade ativa.","MÉTODO"],["Use a regra 30/70","Passe menos tempo assistindo e mais tempo resolvendo e construindo.","MÉTODO"],["Aprenda a explicar conceitos","Se você consegue ensinar de forma simples, provavelmente entendeu.","MÉTODO"],["Crie uma rotina semanal consistente","Consistência vence maratonas aleatórias de 8 horas.","HÁBITO"]]],["Fundamentos de Ciência da Computação","Entenda onde e como seu código realmente é executado.",[["CS50x","Estude programação, memória, algoritmos, C, Python, SQL e fundamentos da web.","CURSO"],["Variáveis, tipos e operadores","Os blocos fundamentais de qualquer programa.","BASE"],["Condições, loops e funções","Controle o fluxo do programa e reutilize lógica.","BASE"],["Arrays, strings e noções de memória","Entenda como os dados são representados e acessados.","BASE"],["CPU, RAM, armazenamento e processos","Aprenda o suficiente para o computador deixar de parecer uma caixa mágica.","SISTEMAS"]]],["Algoritmos e Estruturas de Dados","Treine resolução de problemas sem transformar isso em toda a sua identidade.",[["Notação Big O","Entenda O(1), O(log n), O(n), O(n log n) e O(n²).","ALGO"],["Arrays, listas, pilhas e filas","Estruturas lineares fundamentais.","ED"],["Hash maps e hash sets","Busca rápida, unicidade e padrões de contagem.","ED"],["Árvores, grafos e heaps","Estruturas hierárquicas, relacionais e de prioridade.","ED"],["Busca binária, DFS e BFS","Algoritmos fundamentais de busca.","ALGO"],["Dois ponteiros e janela deslizante","Padrões comuns para problemas com arrays e strings.","PADRÃO"],["LeetCode com moderação","No começo, um problema bem trabalhado por dia já é suficiente.","PRÁTICA"]]],["Java Essencial","Use uma linguagem por tempo suficiente para ficar realmente confortável.",[["Sintaxe Java e tipos principais","Variáveis, métodos, arrays, strings, pacotes e enums.","JAVA"],["Programação orientada a objetos","Classes, objetos, encapsulamento, polimorfismo, interfaces e composição.","JAVA"],["Coleções e generics","List, Set, Map, Queue e tipos genéricos.","JAVA"],["Exceções e stack traces","Lide com falhas e aprenda a depurar erros reais.","JAVA"],["Imutabilidade e igualdade","Entenda records, equals, hashCode e designs de objetos mais seguros.","JAVA"],["Fundamentos de testes","Escreva testes unitários com JUnit antes dos frameworks ficarem complexos.","TESTES"]]],["Ambiente de Desenvolvimento","Fique confortável trabalhando como um desenvolvedor.",[["Fundamentos do terminal","pwd, ls, cd, mkdir, cp, mv, rm, cat, grep, find e curl.","FERRAMENTA"],["Linux ou WSL","Use um ambiente confiável sem transformar troca de distro em hobby.","SISTEMA"],["Fundamentos de Git","Commit, branch, merge, pull, push e resolução de conflitos.","GIT"],["Fluxo com GitHub","Repositórios, pull requests e READMEs claros.","GIT"],["Variáveis de ambiente e PATH","Entenda como programas encontram ferramentas e configurações.","SISTEMA"]]],["Fundamentos da Web","Entenda a web antes de usar um framework backend.",[["Cliente, servidor e DNS","Saiba o que acontece entre um navegador e um servidor.","WEB"],["HTTP e HTTPS","Requisições, respostas, headers, métodos e códigos de status.","WEB"],["JSON e REST","Modele recursos e projete APIs previsíveis.","API"],["Fundamentos de HTML e CSS","Entenda o frontend que futuramente consumirá seus dados.","WEB"],["Fundamentos de JavaScript e fetch()","Consuma APIs e entenda o comportamento no navegador.","WEB"]]],["Bancos de Dados e SQL","Aprenda o banco diretamente antes de escondê-lo atrás de um ORM.",[["Fundamentos de PostgreSQL","Crie bancos, tabelas e relacionamentos.","BD"],["SELECT, INSERT, UPDATE, DELETE","As operações essenciais de SQL.","SQL"],["JOIN, GROUP BY e HAVING","Consulte dados relacionais corretamente.","SQL"],["Chaves e restrições","Chaves primárias, estrangeiras e regras de integridade.","BD"],["Índices e raciocínio sobre consultas","Entenda por que algumas consultas são rápidas e outras não.","BD"],["Transações e ACID","Mantenha operações de negócio consistentes.","BD"]]],["Backend com Spring Boot","Agora use um framework porque você entende os problemas que ele resolve.",[["Spring Core e injeção de dependência","Entenda inversão de controle em vez de decorar anotações.","SPRING"],["Controllers, services e repositories","Separe HTTP, regras de negócio e persistência.","SPRING"],["DTOs e validação","Controle contratos da API e rejeite entradas inválidas.","API"],["Spring Data JPA","Mapeie entidades e relacionamentos sem esquecer do SQL por baixo.","SPRING"],["Tratamento de erros e respostas da API","Crie falhas previsíveis e mensagens úteis.","API"],["Paginação e filtros","Projete APIs que funcionem além de conjuntos minúsculos de dados.","API"]]],["Segurança e Testes","Torne o software mais seguro e prove que ele se comporta corretamente.",[["Autenticação vs autorização","Entenda claramente a diferença.","SEGURANÇA"],["Hash de senhas","Nunca armazene senhas em texto puro.","SEGURANÇA"],["Sessões, JWT e cookies","Entenda estratégias comuns de autenticação.","SEGURANÇA"],["OAuth 2.0 e OpenID Connect","Aprenda identidade delegada em nível conceitual.","SEGURANÇA"],["Spring Security","Aplique regras de segurança de forma intencional.","SPRING"],["Testes de integração e Testcontainers","Teste sua API e o banco de dados em conjunto.","TESTES"]]],["Docker, CI/CD e Deploy","Saia do 'funciona na minha máquina' para software que outras pessoas conseguem executar.",[["Imagens e containers Docker","Entenda Dockerfile, imagens, containers e portas.","DOCKER"],["Docker Compose","Execute sua API e PostgreSQL juntos.","DOCKER"],["Volumes e redes","Persista dados e conecte containers.","DOCKER"],["GitHub Actions","Compile, teste e empacote a cada push.","CI/CD"],["Faça deploy de uma aplicação real","Use uma VPS, plataforma ou nuvem e aprenda com produção.","DEPLOY"],["Logs, segredos e ambientes","Opere software com responsabilidade.","OPERAÇÕES"]]],["Arquitetura de Software","Aprenda arquitetura depois de ter software que realmente precisa ser estruturado.",[["Monólito estruturado","Comece simples e mantenha limites claros.","ARQUITETURA"],["Limites entre controller / service / repository","Dê a cada camada uma razão para existir.","ARQUITETURA"],["Conceitos de arquitetura limpa e hexagonal","Use como ideias de design, não como religião de pastas.","ARQUITETURA"],["Fundamentos de DDD","Modele conceitos e regras de negócio de forma intencional.","ARQUITETURA"],["Cache com Redis","Use cache somente quando entender o problema.","ARQUITETURA"],["Filas e mensageria","Aprenda eventos, produtores, consumidores e consistência eventual.","ARQUITETURA"],["Microservices mais tarde","Estude sistemas distribuídos somente quando um monólito deixar de ser suficiente.","ARQUITETURA"]]],["Preparação para o Mercado","Transforme habilidade em evidência e evidência em oportunidades.",[["Construa 2–3 projetos sérios","Qualidade vale mais que dezenas de repositórios abandonados.","CARREIRA"],["Escreva READMEs excelentes","Explique problema, arquitetura, execução, trade-offs e melhorias futuras.","CARREIRA"],["Estude vagas reais","Use requisitos recorrentes para orientar o que estudar em seguida.","CARREIRA"],["Pratique explicar decisões","Entrevistas avaliam raciocínio e comunicação, não apenas sintaxe.","CARREIRA"],["Prepare currículo e LinkedIn","Mostre o que você construiu e quais problemas resolveu.","CARREIRA"],["Comece a se candidatar antes de se sentir pronto","Você não precisa concluir todo o roadmap.","CARREIRA"]]]],
+  fr: [["Comment apprendre la programmation","Adoptez des habitudes qui évitent l'enfer des tutoriels.",[["Comprendre la boucle Apprendre → Pratiquer → Construire","Transformez l'apprentissage passif en compétence active.","MÉTHODE"],["Utiliser la règle 30/70","Passez moins de temps à regarder et plus de temps à résoudre et construire.","MÉTHODE"],["Apprendre à expliquer les concepts","Si vous pouvez l'enseigner simplement, vous l'avez probablement compris.","MÉTHODE"],["Créer une routine hebdomadaire régulière","La régularité vaut mieux que des marathons aléatoires de 8 heures.","HABITUDE"]]],["Fondamentaux de l'informatique","Comprenez ce sur quoi votre code s'exécute réellement.",[["CS50x","Étudiez la programmation, la mémoire, les algorithmes, C, Python, SQL et les bases du web.","COURS"],["Variables, types et opérateurs","Les briques fondamentales des programmes.","BASE"],["Conditions, boucles et fonctions","Contrôlez le flux du programme et réutilisez la logique.","BASE"],["Tableaux, chaînes et bases de la mémoire","Comprenez comment les données sont représentées et accessibles.","BASE"],["CPU, RAM, stockage et processus","Apprenez assez pour que l'ordinateur cesse de sembler magique.","SYSTÈMES"]]],["Algorithmes et Structures de Données","Entraînez la résolution de problèmes sans en faire toute votre identité.",[["Notation Big O","Comprenez O(1), O(log n), O(n), O(n log n) et O(n²).","ALGO"],["Tableaux, listes, piles et files","Structures linéaires fondamentales.","SD"],["Hash maps et hash sets","Recherche rapide, unicité et modèles de comptage.","SD"],["Arbres, graphes et tas","Structures hiérarchiques, relationnelles et de priorité.","SD"],["Recherche binaire, DFS et BFS","Algorithmes de recherche fondamentaux.","ALGO"],["Deux pointeurs et fenêtre glissante","Modèles courants pour les problèmes de tableaux et de chaînes.","MODÈLE"],["LeetCode avec modération","Au début, un problème bien travaillé par jour suffit.","PRATIQUE"]]],["Java Essentiel","Utilisez une seule langue assez longtemps pour être vraiment à l'aise.",[["Syntaxe Java et types principaux","Variables, méthodes, tableaux, chaînes, packages et enums.","JAVA"],["Programmation orientée objet","Classes, objets, encapsulation, polymorphisme, interfaces et composition.","JAVA"],["Collections et génériques","List, Set, Map, Queue et types génériques.","JAVA"],["Exceptions et stack traces","Gérez les erreurs et apprenez à déboguer à partir de vrais problèmes.","JAVA"],["Immutabilité et égalité","Comprenez records, equals, hashCode et des conceptions d'objets plus sûres.","JAVA"],["Bases des tests","Écrivez des tests unitaires avec JUnit avant que les frameworks deviennent complexes.","TESTS"]]],["Environnement de Développement","Soyez à l'aise avec les outils quotidiens d'un développeur.",[["Bases du terminal","pwd, ls, cd, mkdir, cp, mv, rm, cat, grep, find et curl.","OUTIL"],["Linux ou WSL","Utilisez un environnement fiable sans transformer le changement de distribution en hobby.","SYSTÈME"],["Fondamentaux de Git","Commit, branch, merge, pull, push et résolution des conflits.","GIT"],["Workflow GitHub","Dépôts, pull requests et READMEs clairs.","GIT"],["Variables d'environnement et PATH","Comprenez comment les programmes trouvent les outils et la configuration.","SYSTÈME"]]],["Fondamentaux du Web","Comprenez le web avant d'utiliser un framework backend.",[["Client, serveur et DNS","Comprenez ce qui se passe entre un navigateur et un serveur.","WEB"],["HTTP et HTTPS","Requêtes, réponses, en-têtes, méthodes et codes de statut.","WEB"],["JSON et REST","Modélisez les ressources et concevez des APIs prévisibles.","API"],["Bases de HTML et CSS","Comprenez le frontend qui consommera vos données.","WEB"],["Bases de JavaScript et fetch()","Appelez des APIs et comprenez le comportement dans le navigateur.","WEB"]]],["Bases de Données et SQL","Apprenez la base de données directement avant de la masquer derrière un ORM.",[["Bases de PostgreSQL","Créez des bases, des tables et des relations.","BDD"],["SELECT, INSERT, UPDATE, DELETE","Les opérations SQL essentielles.","SQL"],["JOIN, GROUP BY et HAVING","Interrogez correctement les données relationnelles.","SQL"],["Clés et contraintes","Clés primaires, étrangères et règles d'intégrité.","BDD"],["Index et raisonnement sur les requêtes","Comprenez pourquoi certaines requêtes sont rapides et d'autres non.","BDD"],["Transactions et ACID","Gardez les opérations métier cohérentes.","BDD"]]],["Backend avec Spring Boot","Utilisez maintenant un framework parce que vous comprenez les problèmes qu'il résout.",[["Spring Core et injection de dépendances","Comprenez l'inversion de contrôle au lieu de mémoriser les annotations.","SPRING"],["Controllers, services et repositories","Séparez HTTP, logique métier et persistance.","SPRING"],["DTOs et validation","Contrôlez les contrats d'API et refusez les entrées invalides.","API"],["Spring Data JPA","Mappez les entités et relations sans oublier le SQL sous-jacent.","SPRING"],["Gestion des erreurs et réponses API","Créez des erreurs prévisibles et des messages utiles.","API"],["Pagination et filtrage","Concevez des APIs capables de gérer plus que de petits jeux de données.","API"]]],["Sécurité et Tests","Rendez le logiciel plus sûr et prouvez qu'il fonctionne correctement.",[["Authentification vs autorisation","Comprenez clairement la différence.","SÉCURITÉ"],["Hachage des mots de passe","Ne stockez jamais les mots de passe en clair.","SÉCURITÉ"],["Sessions, JWT et cookies","Comprenez les stratégies d'authentification courantes.","SÉCURITÉ"],["OAuth 2.0 et OpenID Connect","Apprenez l'identité déléguée au niveau conceptuel.","SÉCURITÉ"],["Spring Security","Appliquez les règles de sécurité de façon intentionnelle.","SPRING"],["Tests d'intégration et Testcontainers","Testez ensemble votre API et votre base de données.","TESTS"]]],["Docker, CI/CD et Déploiement","Passez de « ça marche sur ma machine » à un logiciel que d'autres peuvent exécuter.",[["Images et conteneurs Docker","Comprenez Dockerfile, images, conteneurs et ports.","DOCKER"],["Docker Compose","Exécutez votre API et PostgreSQL ensemble.","DOCKER"],["Volumes et réseaux","Conservez les données et connectez les conteneurs.","DOCKER"],["GitHub Actions","Compilez, testez et packagez à chaque push.","CI/CD"],["Déployer une vraie application","Utilisez un VPS, une plateforme ou le cloud et apprenez de la production.","DÉPLOIEMENT"],["Logs, secrets et environnements","Exploitez le logiciel de manière responsable.","OPS"]]],["Architecture Logicielle","Apprenez l'architecture lorsque vous avez un logiciel qui mérite d'être structuré.",[["Monolithe structuré","Commencez simplement et gardez des frontières claires.","ARCHITECTURE"],["Frontières controller / service / repository","Donnez à chaque couche une raison d'exister.","ARCHITECTURE"],["Concepts d'architecture clean et hexagonale","Utilisez-les comme idées de conception, pas comme religion de dossiers.","ARCHITECTURE"],["Bases du DDD","Modélisez volontairement les concepts et règles métier.","ARCHITECTURE"],["Cache avec Redis","Utilisez le cache seulement lorsque vous comprenez le problème.","ARCHITECTURE"],["Files et messagerie","Apprenez les événements, producteurs, consommateurs et la cohérence éventuelle.","ARCHITECTURE"],["Microservices plus tard","Étudiez les systèmes distribués seulement lorsqu'un monolithe ne suffit plus.","ARCHITECTURE"]]],["Préparation à l'Emploi","Transformez vos compétences en preuves, puis ces preuves en opportunités.",[["Construire 2–3 projets sérieux","La qualité vaut mieux que des dizaines de dépôts inachevés.","CARRIÈRE"],["Rédiger d'excellents READMEs","Expliquez le problème, l'architecture, l'installation, les compromis et les améliorations futures.","CARRIÈRE"],["Étudier de vraies offres d'emploi","Utilisez les exigences récurrentes pour guider la suite de votre apprentissage.","CARRIÈRE"],["S'entraîner à expliquer ses décisions","Les entretiens évaluent le raisonnement et la communication, pas seulement la syntaxe.","CARRIÈRE"],["Préparer son CV et LinkedIn","Montrez ce que vous avez construit et les problèmes que vous avez résolus.","CARRIÈRE"],["Commencer à postuler avant de se sentir prêt","Vous n'avez pas besoin de terminer toute la roadmap.","CARRIÈRE"]]]]
+};
+
+const translations = {"en":{"navRoadmap":"Roadmap","navResources":"Resources","navProjects":"Projects","navParallel":"Parallel Tracks","navPrinciples":"Principles","heroEyebrow":"FREE COMMUNITY GUIDE","heroTitle":"Programming roadmap","heroCopy":"A simple, free guide for anyone learning programming. No course, no paywall, no promises — just a structured path, useful resources and practical milestones.","openRoadmap":"Open the roadmap ↓","continue":"Continue from last topic","communityNote":"Made to help people study at their own pace. Fork it, adapt it, share it.","yourProgress":"YOUR PROGRESS","completed":"Completed","topics":"Topics","stages":"Stages","nextUp":"NEXT UP","learningRoadmap":"LEARNING ROADMAP","zeroToDev":"From zero to software developer","followOrder":"Follow the order. Don't rush to frameworks before understanding the fundamentals.","searchTopics":"Search topics...","filterAll":"All","filterTodo":"To do","filterDone":"Done","curatedResources":"CURATED RESOURCES","goodPlaces":"Good places to learn from","resourcesIntro":"A small collection of resources referenced throughout the roadmap. You do not need to complete all of them — open what helps with the stage you are studying.","resAlgorithms":"ALGORITHMS","resCurriculum":"CURRICULUM","resCs50Desc":"Computer science fundamentals, algorithms, memory, problem-solving and programming.","resComputerScience":"Computer Science","resAlgoDesc":"A practical introduction to algorithms, complexity and fundamental data structures.","resAlgoCat":"Algorithms & Data Structures","resFccDesc":"Free interactive learning covering web development, JavaScript, Python, databases and more.","resWebDev":"Web Development","resRoadmapDesc":"A visual overview of the knowledge areas commonly expected from backend developers.","resCareerDirection":"Career Direction","resJavaMoocDesc":"A free Java course with extensive exercises covering programming and object-oriented concepts.","resAmigosDesc":"Java, Spring Boot, backend engineering and software development tutorials.","resSpringDesc":"Official guided learning for Spring, Spring Boot and the broader Spring ecosystem.","resSqlDesc":"Interactive lessons for SQL queries, JOINs, relational data and database fundamentals.","resDatabases":"Databases","resDockerDesc":"A practical introduction to images, containers, registries, ports and Dockerfiles.","resourceNoteLabel":"Note","resourceNote":"These are suggestions, not requirements. Prefer official documentation and hands-on practice, and replace any resource that does not match the way you learn best.","projectIdeas":"PROJECT IDEAS","projectMilestones":"Project milestones","projectCopy":"Every major phase ends with something you can run, explain, improve and show.","level01":"LEVEL 01","level02":"LEVEL 02","level03":"LEVEL 03","level04":"LEVEL 04","level05":"LEVEL 05","level06":"LEVEL 06","proj1Title":"CLI Task Manager","proj1Desc":"Practice variables, loops, functions, collections and file persistence.","proj2Title":"Banking Simulator","proj2Desc":"Model accounts, transfers and rules with OOP, exceptions and collections.","proj3Title":"Task Management API","proj3Desc":"Build a real REST API with Spring Boot, PostgreSQL, validation and tests.","proj4Title":"Auth Service","proj4Desc":"Add registration, login, hashing, roles, permissions and secure sessions or JWT.","proj5Title":"Personal Finance Platform","proj5Desc":"A serious portfolio project with business rules, reporting, Docker and CI/CD.","proj6Title":"E-commerce Backend","proj6Desc":"Products, inventory, orders, payments, coupons, roles and audit logs.","tagLogic":"Logic","tagFiles":"Files","tagTesting":"Testing","tagSecurity":"Security","tagPortfolio":"Portfolio","tagArchitecture":"Architecture","tagBusiness":"Business","parallelTracks":"PARALLEL TRACKS","skillsGrow":"Skills that grow with you","parallelCopy":"Programming is only one part of becoming a strong developer.","generalEnglish":"General English","englishDesc":"Build listening, speaking, reading, writing and vocabulary — not just technical English.","english1":"15–30 min listening daily","english2":"Read content you actually enjoy","english3":"Practice speaking out loud","english4":"Learn vocabulary in context","english5":"Aim for B2 long term","aiLiteracy":"AI Literacy","aiDesc":"Use AI as a teacher, reviewer and pair programmer without outsourcing your thinking.","ai1":"Attempt before asking","ai2":"Explain your hypothesis","ai3":"Ask for hints before code","ai4":"Review generated code critically","ai5":"Never ship what you cannot explain","career":"Career","careerDesc":"Start building your professional profile before you feel completely ready.","career1":"Keep GitHub clean","career2":"Write strong READMEs","career3":"Study real job descriptions","career4":"Build projects around recurring skills","career5":"Apply before you know everything","usefulPrinciples":"USEFUL PRINCIPLES","avoidWaste":"How to avoid wasting a year","rule1Title":"One main language","rule1Desc":"Do not rotate between Java, Python, JavaScript and C# every two weeks.","rule2Title":"30% learn, 70% do","rule2Desc":"Watching code feels productive. Writing your own code creates skill.","rule3Title":"Errors are lessons","rule3Desc":"Read the stack trace, inspect state, form a hypothesis, then ask for help.","rule4Title":"Monolith first","rule4Desc":"Learn to build one good application before distributing complexity.","rule5Title":"Documentation wins","rule5Desc":"Progress from videos to docs and eventually to reading source code.","rule6Title":"Optimize for independence","rule6Desc":"The goal is not knowing everything. It is knowing how to figure things out.","stepLearn":"Learn","stepLearnDesc":"Understand the concept","stepPractice":"Practice","stepPracticeDesc":"Use it immediately","stepBuild":"Build","stepBuildDesc":"Create without tutorials","stepExplain":"Explain","stepExplainDesc":"Teach it back","stepRepeat":"Repeat","stepRepeatDesc":"Review and improve","lastNote":"ONE LAST NOTE","mapNotRulebook":"Use this as a map, not as a rulebook.","everyoneLearns":"Everyone learns differently. Skip what you already know, revisit what you need, and build things along the way.","backRoadmap":"Back to roadmap ↑","freeOpen":"Free, open and made to help people learn.","resetProgress":"Reset progress","stageWord":"STAGE","topicsWord":"topics","roadmapComplete":"Roadmap complete — keep building","greatWork":"Great work","startFirst":"Start your first stage","resetConfirm":"Reset all roadmap progress?","toggleTheme":"Toggle theme","searchAria":"Search roadmap topics","languageAria":"Change language","pageTitle":"Dev Roadmap 2026/2027","metaDesc":"A complete 2026/2027 roadmap to learn programming from zero to job-ready software developer."},"pt":{"navRoadmap":"Roadmap","navResources":"Recursos","navProjects":"Projetos","navParallel":"Trilhas paralelas","navPrinciples":"Princípios","heroEyebrow":"GUIA GRATUITO PARA A COMUNIDADE","heroTitle":"Roadmap de programação","heroCopy":"Um guia simples e gratuito para quem está aprendendo programação. Sem curso, sem paywall e sem promessas — apenas uma trilha organizada, bons recursos e marcos práticos.","openRoadmap":"Abrir o roadmap ↓","continue":"Continuar do último tópico","communityNote":"Feito para ajudar pessoas a estudar no próprio ritmo. Faça um fork, adapte e compartilhe.","yourProgress":"SEU PROGRESSO","completed":"Concluídos","topics":"Tópicos","stages":"Etapas","nextUp":"PRÓXIMO","learningRoadmap":"ROADMAP DE APRENDIZADO","zeroToDev":"Do zero a desenvolvedor de software","followOrder":"Siga a ordem. Não corra para frameworks antes de entender os fundamentos.","searchTopics":"Buscar tópicos...","filterAll":"Todos","filterTodo":"A fazer","filterDone":"Concluídos","curatedResources":"RECURSOS SELECIONADOS","goodPlaces":"Bons lugares para aprender","resourcesIntro":"Uma pequena coleção de recursos citados ao longo do roadmap. Você não precisa concluir todos — abra o que ajudar na etapa que estiver estudando.","resAlgorithms":"ALGORITMOS","resCurriculum":"CURRÍCULO","resCs50Desc":"Fundamentos de ciência da computação, algoritmos, memória, resolução de problemas e programação.","resComputerScience":"Ciência da Computação","resAlgoDesc":"Uma introdução prática a algoritmos, complexidade e estruturas de dados fundamentais.","resAlgoCat":"Algoritmos e Estruturas de Dados","resFccDesc":"Aprendizado interativo gratuito sobre desenvolvimento web, JavaScript, Python, bancos de dados e mais.","resWebDev":"Desenvolvimento Web","resRoadmapDesc":"Uma visão visual das áreas de conhecimento normalmente esperadas de desenvolvedores backend.","resCareerDirection":"Direção de Carreira","resJavaMoocDesc":"Curso gratuito de Java com muitos exercícios sobre programação e orientação a objetos.","resAmigosDesc":"Tutoriais de Java, Spring Boot, engenharia backend e desenvolvimento de software.","resSpringDesc":"Aprendizado oficial e guiado para Spring, Spring Boot e o ecossistema Spring.","resSqlDesc":"Aulas interativas sobre consultas SQL, JOINs, dados relacionais e fundamentos de banco.","resDatabases":"Bancos de Dados","resDockerDesc":"Uma introdução prática a imagens, containers, registries, portas e Dockerfiles.","resourceNoteLabel":"Observação","resourceNote":"Estas são sugestões, não requisitos. Prefira documentação oficial e prática real, e troque qualquer recurso que não combine com sua forma de aprender.","projectIdeas":"IDEIAS DE PROJETOS","projectMilestones":"Marcos de projetos","projectCopy":"Cada grande fase termina com algo que você consegue executar, explicar, melhorar e mostrar.","level01":"NÍVEL 01","level02":"NÍVEL 02","level03":"NÍVEL 03","level04":"NÍVEL 04","level05":"NÍVEL 05","level06":"NÍVEL 06","proj1Title":"Gerenciador de Tarefas CLI","proj1Desc":"Pratique variáveis, loops, funções, coleções e persistência em arquivos.","proj2Title":"Simulador Bancário","proj2Desc":"Modele contas, transferências e regras com POO, exceções e coleções.","proj3Title":"API de Gerenciamento de Tarefas","proj3Desc":"Construa uma API REST real com Spring Boot, PostgreSQL, validação e testes.","proj4Title":"Serviço de Autenticação","proj4Desc":"Adicione cadastro, login, hash de senha, papéis, permissões e sessões seguras ou JWT.","proj5Title":"Plataforma de Finanças Pessoais","proj5Desc":"Um projeto sério de portfólio com regras de negócio, relatórios, Docker e CI/CD.","proj6Title":"Backend de E-commerce","proj6Desc":"Produtos, estoque, pedidos, pagamentos, cupons, papéis e logs de auditoria.","tagLogic":"Lógica","tagFiles":"Arquivos","tagTesting":"Testes","tagSecurity":"Segurança","tagPortfolio":"Portfólio","tagArchitecture":"Arquitetura","tagBusiness":"Negócio","parallelTracks":"TRILHAS PARALELAS","skillsGrow":"Habilidades que crescem com você","parallelCopy":"Programação é apenas uma parte de se tornar um bom desenvolvedor.","generalEnglish":"Inglês geral","englishDesc":"Desenvolva compreensão auditiva, fala, leitura, escrita e vocabulário — não apenas inglês técnico.","english1":"15–30 min de escuta por dia","english2":"Leia conteúdos de que você realmente gosta","english3":"Pratique falar em voz alta","english4":"Aprenda vocabulário em contexto","english5":"Busque chegar ao B2 no longo prazo","aiLiteracy":"Uso consciente de IA","aiDesc":"Use IA como professora, revisora e parceira de programação sem terceirizar seu raciocínio.","ai1":"Tente antes de perguntar","ai2":"Explique sua hipótese","ai3":"Peça dicas antes do código","ai4":"Revise criticamente o código gerado","ai5":"Nunca publique algo que você não consegue explicar","career":"Carreira","careerDesc":"Comece a construir seu perfil profissional antes de se sentir totalmente pronto.","career1":"Mantenha seu GitHub organizado","career2":"Escreva READMEs fortes","career3":"Estude descrições de vagas reais","career4":"Crie projetos com habilidades recorrentes","career5":"Candidate-se antes de saber tudo","usefulPrinciples":"PRINCÍPIOS ÚTEIS","avoidWaste":"Como evitar desperdiçar um ano","rule1Title":"Uma linguagem principal","rule1Desc":"Não fique trocando entre Java, Python, JavaScript e C# a cada duas semanas.","rule2Title":"30% aprender, 70% fazer","rule2Desc":"Assistir código parece produtivo. Escrever seu próprio código cria habilidade.","rule3Title":"Erros são aulas","rule3Desc":"Leia o stack trace, inspecione o estado, crie uma hipótese e só então peça ajuda.","rule4Title":"Monólito primeiro","rule4Desc":"Aprenda a construir uma boa aplicação antes de distribuir a complexidade.","rule5Title":"Documentação vence","rule5Desc":"Evolua de vídeos para documentação e, depois, para leitura de código-fonte.","rule6Title":"Otimize para independência","rule6Desc":"O objetivo não é saber tudo. É saber descobrir como resolver.","stepLearn":"Aprenda","stepLearnDesc":"Entenda o conceito","stepPractice":"Pratique","stepPracticeDesc":"Use imediatamente","stepBuild":"Construa","stepBuildDesc":"Crie sem tutoriais","stepExplain":"Explique","stepExplainDesc":"Ensine com suas palavras","stepRepeat":"Repita","stepRepeatDesc":"Revise e melhore","lastNote":"UMA ÚLTIMA OBSERVAÇÃO","mapNotRulebook":"Use isto como um mapa, não como um livro de regras.","everyoneLearns":"Cada pessoa aprende de um jeito. Pule o que já sabe, revise o que precisar e construa projetos ao longo do caminho.","backRoadmap":"Voltar ao roadmap ↑","freeOpen":"Gratuito, aberto e feito para ajudar pessoas a aprender.","resetProgress":"Resetar progresso","stageWord":"ETAPA","topicsWord":"tópicos","roadmapComplete":"Roadmap concluído — continue construindo","greatWork":"Ótimo trabalho","startFirst":"Comece sua primeira etapa","resetConfirm":"Resetar todo o progresso do roadmap?","toggleTheme":"Alternar tema","searchAria":"Buscar tópicos do roadmap","languageAria":"Trocar idioma","pageTitle":"Dev Roadmap 2026/2027","metaDesc":"Um roadmap completo de 2026/2027 para aprender programação do zero até estar preparado para o mercado."},"fr":{"navRoadmap":"Roadmap","navResources":"Ressources","navProjects":"Projets","navParallel":"Parcours parallèles","navPrinciples":"Principes","heroEyebrow":"GUIDE GRATUIT POUR LA COMMUNAUTÉ","heroTitle":"Roadmap de programmation","heroCopy":"Un guide simple et gratuit pour celles et ceux qui apprennent la programmation. Aucun cours à vendre, aucun paywall et aucune promesse — seulement un parcours structuré, de bonnes ressources et des étapes pratiques.","openRoadmap":"Ouvrir la roadmap ↓","continue":"Reprendre au dernier sujet","communityNote":"Créé pour aider chacun à apprendre à son rythme. Forkez-le, adaptez-le et partagez-le.","yourProgress":"VOTRE PROGRESSION","completed":"Terminés","topics":"Sujets","stages":"Étapes","nextUp":"À SUIVRE","learningRoadmap":"ROADMAP D’APPRENTISSAGE","zeroToDev":"De zéro à développeur logiciel","followOrder":"Suivez l’ordre. Ne vous précipitez pas sur les frameworks avant de comprendre les fondamentaux.","searchTopics":"Rechercher des sujets...","filterAll":"Tous","filterTodo":"À faire","filterDone":"Terminés","curatedResources":"RESSOURCES SÉLECTIONNÉES","goodPlaces":"De bonnes ressources pour apprendre","resourcesIntro":"Une petite sélection de ressources mentionnées dans la roadmap. Vous n'avez pas besoin de tout terminer — ouvrez ce qui vous aide dans l'étape que vous étudiez.","resAlgorithms":"ALGORITHMES","resCurriculum":"PROGRAMME","resCs50Desc":"Fondamentaux de l'informatique, algorithmes, mémoire, résolution de problèmes et programmation.","resComputerScience":"Informatique","resAlgoDesc":"Une introduction pratique aux algorithmes, à la complexité et aux structures de données fondamentales.","resAlgoCat":"Algorithmes et Structures de Données","resFccDesc":"Apprentissage interactif gratuit couvrant le développement web, JavaScript, Python, les bases de données et plus encore.","resWebDev":"Développement Web","resRoadmapDesc":"Une vue d'ensemble visuelle des connaissances généralement attendues d'un développeur backend.","resCareerDirection":"Orientation de Carrière","resJavaMoocDesc":"Un cours Java gratuit avec de nombreux exercices sur la programmation et la programmation orientée objet.","resAmigosDesc":"Tutoriels sur Java, Spring Boot, l'ingénierie backend et le développement logiciel.","resSpringDesc":"Apprentissage officiel et guidé pour Spring, Spring Boot et l'écosystème Spring.","resSqlDesc":"Leçons interactives sur les requêtes SQL, les JOINs, les données relationnelles et les bases des bases de données.","resDatabases":"Bases de Données","resDockerDesc":"Une introduction pratique aux images, conteneurs, registres, ports et Dockerfiles.","resourceNoteLabel":"Note","resourceNote":"Ce sont des suggestions, pas des obligations. Privilégiez la documentation officielle et la pratique, et remplacez toute ressource qui ne correspond pas à votre façon d'apprendre.","projectIdeas":"IDÉES DE PROJETS","projectMilestones":"Étapes de projets","projectCopy":"Chaque grande phase se termine par quelque chose que vous pouvez exécuter, expliquer, améliorer et montrer.","level01":"NIVEAU 01","level02":"NIVEAU 02","level03":"NIVEAU 03","level04":"NIVEAU 04","level05":"NIVEAU 05","level06":"NIVEAU 06","proj1Title":"Gestionnaire de Tâches CLI","proj1Desc":"Pratiquez les variables, boucles, fonctions, collections et la persistance dans des fichiers.","proj2Title":"Simulateur Bancaire","proj2Desc":"Modélisez des comptes, transferts et règles avec la POO, les exceptions et les collections.","proj3Title":"API de Gestion de Tâches","proj3Desc":"Construisez une vraie API REST avec Spring Boot, PostgreSQL, validation et tests.","proj4Title":"Service d’Authentification","proj4Desc":"Ajoutez inscription, connexion, hachage, rôles, permissions et sessions sécurisées ou JWT.","proj5Title":"Plateforme de Finances Personnelles","proj5Desc":"Un projet de portfolio sérieux avec règles métier, rapports, Docker et CI/CD.","proj6Title":"Backend E-commerce","proj6Desc":"Produits, stock, commandes, paiements, coupons, rôles et journaux d'audit.","tagLogic":"Logique","tagFiles":"Fichiers","tagTesting":"Tests","tagSecurity":"Sécurité","tagPortfolio":"Portfolio","tagArchitecture":"Architecture","tagBusiness":"Métier","parallelTracks":"PARCOURS PARALLÈLES","skillsGrow":"Des compétences qui progressent avec vous","parallelCopy":"La programmation n'est qu'une partie du parcours pour devenir un bon développeur.","generalEnglish":"Anglais général","englishDesc":"Développez l'écoute, l'expression orale, la lecture, l'écriture et le vocabulaire — pas seulement l'anglais technique.","english1":"15–30 min d'écoute par jour","english2":"Lisez du contenu que vous aimez vraiment","english3":"Entraînez-vous à parler à voix haute","english4":"Apprenez le vocabulaire en contexte","english5":"Visez le niveau B2 à long terme","aiLiteracy":"Maîtrise de l’IA","aiDesc":"Utilisez l'IA comme professeur, relecteur et partenaire de programmation sans lui déléguer votre réflexion.","ai1":"Essayez avant de demander","ai2":"Expliquez votre hypothèse","ai3":"Demandez des indices avant du code","ai4":"Relisez le code généré de façon critique","ai5":"Ne publiez jamais ce que vous ne pouvez pas expliquer","career":"Carrière","careerDesc":"Commencez à construire votre profil professionnel avant de vous sentir totalement prêt.","career1":"Gardez votre GitHub propre","career2":"Rédigez de bons READMEs","career3":"Étudiez de vraies offres d'emploi","career4":"Construisez des projets autour des compétences récurrentes","career5":"Postulez avant de tout savoir","usefulPrinciples":"PRINCIPES UTILES","avoidWaste":"Comment éviter de perdre une année","rule1Title":"Un langage principal","rule1Desc":"Ne changez pas entre Java, Python, JavaScript et C# toutes les deux semaines.","rule2Title":"30 % apprendre, 70 % faire","rule2Desc":"Regarder du code semble productif. Écrire votre propre code crée la compétence.","rule3Title":"Les erreurs sont des leçons","rule3Desc":"Lisez la stack trace, inspectez l'état, formulez une hypothèse, puis demandez de l'aide.","rule4Title":"Le monolithe d'abord","rule4Desc":"Apprenez à construire une bonne application avant de distribuer la complexité.","rule5Title":"La documentation gagne","rule5Desc":"Passez des vidéos à la documentation, puis progressivement à la lecture du code source.","rule6Title":"Visez l'autonomie","rule6Desc":"Le but n'est pas de tout savoir. C'est de savoir comment trouver la solution.","stepLearn":"Apprendre","stepLearnDesc":"Comprendre le concept","stepPractice":"Pratiquer","stepPracticeDesc":"L'utiliser immédiatement","stepBuild":"Construire","stepBuildDesc":"Créer sans tutoriel","stepExplain":"Expliquer","stepExplainDesc":"Le reformuler avec ses mots","stepRepeat":"Répéter","stepRepeatDesc":"Réviser et améliorer","lastNote":"UNE DERNIÈRE NOTE","mapNotRulebook":"Utilisez ceci comme une carte, pas comme un règlement.","everyoneLearns":"Chacun apprend différemment. Ignorez ce que vous connaissez déjà, révisez ce dont vous avez besoin et construisez des projets en chemin.","backRoadmap":"Retour à la roadmap ↑","freeOpen":"Gratuit, ouvert et conçu pour aider les gens à apprendre.","resetProgress":"Réinitialiser la progression","stageWord":"ÉTAPE","topicsWord":"sujets","roadmapComplete":"Roadmap terminée — continuez à construire","greatWork":"Excellent travail","startFirst":"Commencez votre première étape","resetConfirm":"Réinitialiser toute la progression de la roadmap ?","toggleTheme":"Changer le thème","searchAria":"Rechercher dans les sujets de la roadmap","languageAria":"Changer de langue","pageTitle":"Dev Roadmap 2026/2027","metaDesc":"Une roadmap complète 2026/2027 pour apprendre la programmation de zéro jusqu'à être prêt pour le marché."}};
 
 const storageKey = "devRoadmap2026Progress";
 let progress = JSON.parse(localStorage.getItem(storageKey) || "{}");
 let currentFilter = "all";
 let currentSearch = "";
+let currentLanguage = localStorage.getItem("devRoadmapLanguage") || "en";
+if (!translations[currentLanguage]) currentLanguage = "en";
 
 const roadmapList = document.getElementById("roadmapList");
 const searchInput = document.getElementById("searchInput");
 const filters = document.querySelectorAll(".filter");
 
-function topicId(stageIndex, topicIndex){
+function t(key) {
+  return translations[currentLanguage][key] || translations.en[key] || key;
+}
+
+function stages() {
+  return stageData[currentLanguage] || stageData.en;
+}
+
+function topicId(stageIndex, topicIndex) {
   return `s${stageIndex}-t${topicIndex}`;
 }
 
-function render(){
+function render() {
+  const data = stages();
   roadmapList.innerHTML = "";
-  stages.forEach((stage, sIdx) => {
-    const visibleTopics = stage.topics
-      .map((t,tIdx)=>({t,tIdx,id:topicId(sIdx,tIdx),done:!!progress[topicId(sIdx,tIdx)]}))
-      .filter(({t,done}) => {
-        const matchesSearch = (t[0] + " " + t[1] + " " + t[2]).toLowerCase().includes(currentSearch.toLowerCase());
+
+  data.forEach((stage, sIdx) => {
+    const topics = stage[2];
+    const visibleTopics = topics
+      .map((topic,tIdx)=>({topic,tIdx,id:topicId(sIdx,tIdx),done:!!progress[topicId(sIdx,tIdx)]}))
+      .filter(({topic,done}) => {
+        const matchesSearch = topic.join(" ").toLowerCase().includes(currentSearch.toLowerCase());
         const matchesFilter = currentFilter === "all" || (currentFilter === "done" ? done : !done);
         return matchesSearch && matchesFilter;
       });
 
     if(!visibleTopics.length && (currentSearch || currentFilter !== "all")) return;
 
-    const total = stage.topics.length;
-    const done = stage.topics.filter((_,i)=>progress[topicId(sIdx,i)]).length;
+    const total = topics.length;
+    const done = topics.filter((_,i)=>progress[topicId(sIdx,i)]).length;
     const pct = Math.round((done/total)*100);
 
     const el = document.createElement("article");
@@ -177,19 +54,19 @@ function render(){
     el.dataset.stage = sIdx;
     el.innerHTML = `
       <div class="stage-head">
-        <div class="stage-number">STAGE ${String(sIdx+1).padStart(2,"0")}</div>
-        <div class="stage-title"><h3>${stage.title}</h3><p>${stage.subtitle}</p></div>
-        <div class="stage-progress"><strong>${pct}%</strong><small>${done}/${total} topics</small></div>
+        <div class="stage-number">${t("stageWord")} ${String(sIdx+1).padStart(2,"0")}</div>
+        <div class="stage-title"><h3>${stage[0]}</h3><p>${stage[1]}</p></div>
+        <div class="stage-progress"><strong>${pct}%</strong><small>${done}/${total} ${t("topicsWord")}</small></div>
       </div>
       <div class="stage-body">
-        ${visibleTopics.map(({t,tIdx,id,done})=>`
+        ${visibleTopics.map(({topic,id,done})=>`
           <label class="topic ${done ? "done":""}">
             <input type="checkbox" data-id="${id}" ${done ? "checked":""}>
             <div>
-              <div class="topic-name">${t[0]}</div>
-              <div class="topic-desc">${t[1]}</div>
+              <div class="topic-name">${topic[0]}</div>
+              <div class="topic-desc">${topic[1]}</div>
             </div>
-            <span class="topic-tag">${t[2]}</span>
+            <span class="topic-tag">${topic[2]}</span>
           </label>`).join("")}
       </div>`;
     roadmapList.appendChild(el);
@@ -205,16 +82,16 @@ function render(){
       progress[cb.dataset.id] = cb.checked;
       localStorage.setItem(storageKey, JSON.stringify(progress));
       render();
-      updateSummary();
     });
   });
 
   updateSummary();
 }
 
-function updateSummary(){
+function updateSummary() {
+  const data = stages();
   const ids = [];
-  stages.forEach((s,si)=>s.topics.forEach((_,ti)=>ids.push(topicId(si,ti))));
+  data.forEach((s,si)=>s[2].forEach((_,ti)=>ids.push(topicId(si,ti))));
   const done = ids.filter(id=>progress[id]).length;
   const total = ids.length;
   const pct = total ? Math.round(done/total*100) : 0;
@@ -225,24 +102,62 @@ function updateSummary(){
   document.getElementById("progressRing").style.background = `conic-gradient(var(--accent) ${pct*3.6}deg,var(--line) 0deg)`;
   document.getElementById("doneCount").textContent = done;
   document.getElementById("topicCount").textContent = total;
-  document.getElementById("stageCount").textContent = stages.length;
+  document.getElementById("stageCount").textContent = data.length;
 
   let next = null;
-  outer: for(let si=0;si<stages.length;si++){
-    for(let ti=0;ti<stages[si].topics.length;ti++){
+  outer: for(let si=0;si<data.length;si++){
+    for(let ti=0;ti<data[si][2].length;ti++){
       const id = topicId(si,ti);
       if(!progress[id]){
-        next = {si,ti,topic:stages[si].topics[ti][0]};
+        next = {si, topic:data[si][2][ti][0]};
         break outer;
       }
     }
   }
-  document.getElementById("nextTopic").textContent = next ? next.topic : "Roadmap complete — keep building";
-  document.getElementById("nextStage").textContent = next ? `Stage ${String(next.si+1).padStart(2,"0")} · ${stages[next.si].title}` : "Great work";
+
+  document.getElementById("nextTopic").textContent = next ? next.topic : t("roadmapComplete");
+  document.getElementById("nextStage").textContent = next
+    ? `${t("stageWord")} ${String(next.si+1).padStart(2,"0")} · ${data[next.si][0]}`
+    : t("greatWork");
 }
 
-searchInput.addEventListener("input",e=>{currentSearch=e.target.value;render()});
-filters.forEach(btn=>btn.addEventListener("click",()=>{
+function applyLanguage(lang) {
+  currentLanguage = translations[lang] ? lang : "en";
+  localStorage.setItem("devRoadmapLanguage", currentLanguage);
+  document.documentElement.lang = currentLanguage;
+
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const value = t(el.dataset.i18n);
+    if(value) el.textContent = value;
+  });
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+    el.placeholder = t(el.dataset.i18nPlaceholder);
+  });
+  document.querySelectorAll("[data-i18n-aria]").forEach(el => {
+    el.setAttribute("aria-label", t(el.dataset.i18nAria));
+  });
+
+  document.title = t("pageTitle");
+  const meta = document.getElementById("metaDescription");
+  if(meta) meta.setAttribute("content", t("metaDesc"));
+
+  const flags = {"en": "<svg viewBox=\"0 0 28 20\" aria-hidden=\"true\"><rect width=\"28\" height=\"20\" rx=\"2\" fill=\"#fff\"/><path fill=\"#B22234\" d=\"M0 0h28v2H0zm0 4h28v2H0zm0 4h28v2H0zm0 4h28v2H0zm0 4h28v2H0z\"/><rect width=\"12\" height=\"10.8\" rx=\"1\" fill=\"#3C3B6E\"/><g fill=\"#fff\"><circle cx=\"2\" cy=\"2\" r=\".6\"/><circle cx=\"5\" cy=\"2\" r=\".6\"/><circle cx=\"8\" cy=\"2\" r=\".6\"/><circle cx=\"2\" cy=\"5\" r=\".6\"/><circle cx=\"5\" cy=\"5\" r=\".6\"/><circle cx=\"8\" cy=\"5\" r=\".6\"/><circle cx=\"2\" cy=\"8\" r=\".6\"/><circle cx=\"5\" cy=\"8\" r=\".6\"/><circle cx=\"8\" cy=\"8\" r=\".6\"/></g></svg>", "pt": "<svg viewBox=\"0 0 28 20\" aria-hidden=\"true\"><rect width=\"28\" height=\"20\" rx=\"2\" fill=\"#009B3A\"/><path fill=\"#FFDF00\" d=\"M14 2.2 25 10 14 17.8 3 10z\"/><circle cx=\"14\" cy=\"10\" r=\"4.2\" fill=\"#002776\"/><path d=\"M10.5 9.2c2.6-.6 5.3-.3 7.7.8\" fill=\"none\" stroke=\"#fff\" stroke-width=\".8\"/></svg>", "fr": "<svg viewBox=\"0 0 28 20\" aria-hidden=\"true\"><rect width=\"28\" height=\"20\" rx=\"2\" fill=\"#fff\"/><path fill=\"#0055A4\" d=\"M0 0h9.34v20H0z\"/><path fill=\"#EF4135\" d=\"M18.66 0H28v20h-9.34z\"/></svg>"};
+  const flag = document.querySelector(".lang-flag");
+  if(flag) flag.innerHTML = flags[currentLanguage] || flags.en;
+
+  document.querySelectorAll(".language-option").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.lang === currentLanguage);
+  });
+
+  render();
+}
+
+searchInput.addEventListener("input", e => {
+  currentSearch = e.target.value;
+  render();
+});
+
+filters.forEach(btn => btn.addEventListener("click",()=>{
   filters.forEach(b=>b.classList.remove("active"));
   btn.classList.add("active");
   currentFilter = btn.dataset.filter;
@@ -250,13 +165,14 @@ filters.forEach(btn=>btn.addEventListener("click",()=>{
 }));
 
 document.getElementById("continueBtn").addEventListener("click",()=>{
+  const data = stages();
   let target = null;
-  outer: for(let si=0;si<stages.length;si++){
-    for(let ti=0;ti<stages[si].topics.length;ti++){
+  outer: for(let si=0;si<data.length;si++){
+    for(let ti=0;ti<data[si][2].length;ti++){
       if(!progress[topicId(si,ti)]){target=si;break outer}
     }
   }
-  if(target === null) target = stages.length-1;
+  if(target === null) target = data.length-1;
   const el = document.querySelector(`[data-stage="${target}"]`);
   if(el){el.classList.add("open");el.scrollIntoView({behavior:"smooth",block:"center"})}
 });
@@ -268,11 +184,32 @@ document.getElementById("themeBtn").addEventListener("click",()=>{
 if(localStorage.getItem("devRoadmapTheme")==="light") document.body.classList.add("light");
 
 document.getElementById("resetBtn").addEventListener("click",()=>{
-  if(confirm("Reset all roadmap progress?")){
+  if(confirm(t("resetConfirm"))){
     progress={};
     localStorage.removeItem(storageKey);
     render();
   }
 });
 
-render();
+const languageBtn = document.getElementById("languageBtn");
+const languageMenu = document.getElementById("languageMenu");
+if(languageBtn && languageMenu){
+  languageBtn.addEventListener("click", e=>{
+    e.stopPropagation();
+    const open = languageMenu.classList.toggle("open");
+    languageBtn.setAttribute("aria-expanded", String(open));
+  });
+  document.querySelectorAll(".language-option").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      applyLanguage(btn.dataset.lang);
+      languageMenu.classList.remove("open");
+      languageBtn.setAttribute("aria-expanded","false");
+    });
+  });
+  document.addEventListener("click",()=>{
+    languageMenu.classList.remove("open");
+    languageBtn.setAttribute("aria-expanded","false");
+  });
+}
+
+applyLanguage(currentLanguage);
