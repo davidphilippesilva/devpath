@@ -10,6 +10,7 @@ This is **not a course** and there is nothing to buy. The project exists to help
 - Progress saved locally in the browser
 - Search and filters
 - Project ideas
+- Curated learning resources with direct links
 - General English track
 - AI literacy track
 - Career track
